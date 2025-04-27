@@ -16,7 +16,7 @@ connectionDB()
             console.log("err", error)
             throw error
         })
-        consocle.log(`server is running on port ${process.env.PORT}`)
+        console.log(`server is running on port ${process.env.PORT}`)
         // app.listen(process.env.PORT || 8080, () => {
         //     consocle.log(`server is running on port ${process.env.PORT}`)
         // })
