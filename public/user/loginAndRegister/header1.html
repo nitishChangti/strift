@@ -1,0 +1,329 @@
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+<nav class="navSection">
+    <span class="navLeftSide">
+        <span class="menuButton">
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+        </span>
+        <a href="/" style="text-decoration: none;">
+            <h1 class="logo">Strift</h1>
+        </a>
+    </span>
+
+
+    <section class="searchSection">
+        <input type="search" name="" id="" placeholder="Search for Products" aria-label="Search for Products">
+        <span class="material-symbols-outlined search_bar">
+            search
+        </span>
+    </section>
+    <ul class="navLinks">
+        <li class="accountLink">
+            <span class="material-symbols-outlined">
+                account_circle
+            </span>
+            <span class="accountText">Login</span>
+            <span class="material-symbols-outlined">
+                keyboard_arrow_down
+            </span>
+        </li>
+        <a href="/viewcart" style="text-decoration: none;">
+            <li class="cartLink">
+
+                <span class="material-symbols-outlined">
+                    shopping_cart
+                </span>
+                <span class="cartText">Cart</span>
+            </li>
+        </a>
+        <li class="contactLink">
+            <span class="material-symbols-outlined">
+                call
+            </span>
+            <span class="contactText">Contact</span>
+        </li>
+    </ul>
+</nav>
+<section class="searchSection1">
+    <input type="search" name="" id="" placeholder="Search for Products" aria-label="Search for Products">
+    <span class="material-symbols-outlined search_bar" id="icon">
+        search
+    </span>
+</section>
+<span class="res_navbar">
+    <ul>
+        <li>All Categories <span class="material-symbols-outlined">
+                arrow_drop_down
+            </span></li>
+        <li>
+            My Orders
+        </li>
+        <li>My Cart</li>
+        <li>My Wishlist</li>
+        <li>My Account</li>
+        <li>Contact Us</li>
+        <li>Legal</li>
+    </ul>
+</span>
+<style>
+    /* * {
+    margin: 0;
+    box-sizing: border-box;
+} */
+
+    .navSection {
+        /* border: 2px solid red; */
+        display: flex;
+        height: 60px;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 6vw;
+        overflow: hidden;
+        border-bottom: 2px solid rgba(159, 151, 151, 0.421);
+        box-shadow: 2px 2px 10px rgba(159, 151, 151, 0.421);
+
+    }
+
+    h1 {
+        font-size: 2.5vw;
+    }
+
+    .menuButton {
+        display: none;
+    }
+
+    .searchSection input {
+        width: 30vw;
+        height: 35px;
+        border: 1.5px solid;
+        border-radius: 15px;
+        padding-left: 10px;
+        font-size: 15px;
+    }
+
+    .searchSection input+span {
+        position: relative;
+        right: 35px;
+        top: 8px;
+    }
+
+    .navSection ul {
+        list-style-type: none;
+        display: flex;
+        gap: 30px;
+        font: 20px;
+        padding-right: 2vw;
+    }
+
+    .navSection ul li {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        /* text-align: center; */
+        /* border: 2px solid red; */
+
+    }
+
+    .searchSection1 {
+        display: none;
+    }
+
+    .res_navbar {
+        display: none;
+    }
+
+    .accountLink :hover {}
+
+    @media (max-width:768px) {
+        .searchSection {
+            display: none;
+        }
+
+        .navLeftSide {
+            display: flex;
+            gap: 3vw;
+            align-items: center;
+        }
+
+        .navSection h1 {
+            /* margin-right: 25vw; */
+            /* position: static; */
+            /* right: 100px; */
+            font-size: 28px;
+        }
+
+        .menuButton {
+            display: flex;
+        }
+
+        .searchSection1 {
+            display: block;
+            /* border: 2px solid; */
+            padding-left: 0;
+            /* font-size: 15px; */
+            /* margin-top: 100px; */
+            /* position: absolute; */
+            margin-top: 2px;
+            padding-top: 8px;
+            width: 100%;
+            /* left: 0; */
+            height: 7.5vw;
+        }
+
+        .searchSection1 input {
+            width: 95%;
+            height: 35px;
+            /* margin-left: 18px; */
+            position: relative;
+            left: 18px;
+            z-index: -2;
+            border: 1.5px solid;
+            padding-left: 15px;
+            border-radius: 15px;
+        }
+
+        .searchSection1 span {
+            /* border: 2px solid; */
+            z-index: 4;
+            position: relative;
+            right: 2vw;
+            top: 1vw;
+        }
+
+        .res_navbar {
+            display: block;
+        }
+
+
+        .res_navbar {
+            position: absolute;
+            left: -90%;
+            /* left: 100px; */
+            top: 10vh;
+            /* border: 2px solid red; */
+            width: 85%;
+            /* height: 100%; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-100px);
+            /* opacity: 0; */
+            transition: all 900ms cubic-bezier(.9, 0, .33, 1);
+            background-color: aliceblue;
+            z-index: 2;
+            border-bottom-right-radius: 55%;
+            box-shadow: 2px 2px 10px rgba(159, 151, 151, 0.421);
+        }
+
+        .res_navbar ul {
+            /* position: absolute; */
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            gap: 4vh;
+            padding-top: 2vh;
+            padding-bottom: 5vh;
+            /* padding-left: 15vh; */
+            /* justify-content: space-evenly; */
+            list-style-type: none;
+            /* border: 2px solid red; */
+            /* height: 10vh; */
+        }
+
+        .res_navbar ul li:first-child {
+            /* styles here */
+            /* border: 2px solid red; */
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid black;
+        }
+
+        .res_navbar.fade-in {
+            opacity: 1;
+            transform: translateX(90%);
+            /* transform: translateX(0%); */
+        }
+
+        .menuButton {
+            /* position: absolute; */
+            /* top: 10%; */
+            /* right: 5%; */
+            /* padding: 0; */
+            /* width: 30px; */
+            /* cursor: pointer; */
+            /* z-index: 2; */
+        }
+
+    }
+
+    @media(max-width:568px) {
+        .searchSection1 input {
+            /* width: 10px; */
+        }
+
+        .searchSection1 span {
+            z-index: 4;
+            position: relative;
+            /* right: 2vw; */
+            left: 150vw;
+            top: 1vw;
+        }
+
+        .searchSection1 {
+            /* border: 2px solid red; */
+        }
+
+        .searchSection1 #icon {
+            /* border: 2px solid red; */
+            width: 25px;
+            position: relative;
+            top: -30px;
+            left: 92vw;
+        }
+
+        .navSection ul {
+            /* list-style-type: none; */
+            /* display: flex; */
+            gap: 15px;
+            /* font: 20px; */
+            /* padding-right: 2vw; */
+        }
+    }
+
+    @media(max-width:550px) {
+        .navSection .contactLink {
+            display: none;
+        }
+
+        .searchSection1 input {
+            left: 10px;
+
+        }
+
+        .searchSection1 #icon {
+            /* position: relative; */
+            /* top: -30px; */
+            left: 89.9vw;
+        }
+    }
+
+    @media(max-width:360px) {
+        .cartText {
+            display: none;
+        }
+
+        .accountText {
+            display: none;
+        }
+
+        .searchSection1 #icon {
+            position: relative;
+            top: -30px;
+            left: 90vw;
+        }
+    }
+</style>

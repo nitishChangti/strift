@@ -1,0 +1,483 @@
+<span class="navLeftSide">
+    <span class="menuButton">
+        <span class="material-symbols-outlined">
+            menu
+        </span>
+    </span>
+    <a href="/">
+        <h1 class="logo">Strift</h1>
+    </a>
+</span>
+<section class="searchSection">
+    <input type="search" id="searchBar" placeholder="Search for Products" aria-label="Search for Products"
+        name="searchBar">
+    <span class="material-symbols-outlined search_bar">
+        search
+    </span>
+    <div id="suggestionsDropdown" class="suggestions-dropdown"></div>
+</section>
+<ul class="navLinks">
+    <a href="/account?ret=/" class="accountLink-main">
+        <li class="accountLink">
+            <span class="material-symbols-outlined">
+                account_circle
+            </span>
+            <span class="accountText">Login</span>
+            <span class="material-symbols-outlined">
+                keyboard_arrow_down
+            </span>
+        </li>
+        <div class="beforeloginPopUp">
+            <a href="/account?signup=true">
+                <li style="padding-left: 15px;"><span>New customer?&nbsp; &nbsp; </span><span>Sign Up</span></li>
+            </a>
+            <span>
+                <!-- <a href="/account/profile"> -->
+                <li style="cursor: pointer;">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                    </span>
+                    <span>My Profile</span>
+                </li>
+                <!-- </a> -->
+                <li>
+                    <span class="material-symbols-outlined">
+                        orders
+                    </span>
+                    <span>Orders</span>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">
+                        favorite
+                    </span>
+                    <span>Wishlist</span>
+                </li>
+            </span>
+        </div>
+
+        <div class="afterloginPopUp">
+            <span>
+                <a href="/account/profile">
+                    <li>
+                        <span class="material-symbols-outlined">
+                            account_circle
+                        </span>
+                        <span>My Profile</span>
+                    </li>
+                </a>
+                <li>
+                    <span class="material-symbols-outlined">
+                        orders
+                    </span>
+                    <span>Orders</span>
+                </li>
+                <li>
+                    <span class="material-symbols-outlined">
+                        favorite
+                    </span>
+                    <span>Wishlist</span>
+                </li>
+            </span>
+            <a href="/account/logout" class="loginClick">
+                <!-- <button class="click"> -->
+                <li style="margin-left: 20px; margin-top:-10px; padding-top: 0; "><span
+                        class="material-symbols-outlined">logout</span><span>LogOut</span>
+                </li>
+                <!-- </button> -->
+            </a>
+        </div>
+    </a>
+    <a href="/viewcart">
+        <li class="cartLink">
+            <span class="material-symbols-outlined">
+                shopping_cart
+            </span>
+            <span class="cartText">Cart</span>
+        </li>
+    </a>
+    <li class="contactLink">
+        <span class="material-symbols-outlined">
+            call
+        </span>
+        <span class="contactText">Contact</span>
+    </li>
+</ul>
+</nav>
+
+
+<style>
+    /* * {
+            margin: 0;
+            box-sizing: border-box;
+        } */
+
+    .navSection {
+        /* border: 2px solid red; */
+        display: flex;
+        height: 60px;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 6vw;
+        overflow: hidden;
+        border-bottom: 2px solid rgba(159, 151, 151, 0.421);
+        box-shadow: 2px 2px 10px rgba(159, 151, 151, 0.421);
+
+    }
+
+    h1 {
+        font-size: 2.5vw;
+
+    }
+
+    a,
+    h1 {
+        text-decoration: none;
+        color: black;
+
+    }
+
+    .menuButton {
+        display: none;
+    }
+
+    .searchSection input {
+        width: 30vw;
+        height: 35px;
+        border: 1.5px solid;
+        border-radius: 15px;
+        padding-left: 10px;
+        font-size: 15px;
+    }
+
+    .searchSection input+span {
+        position: relative;
+        right: 35px;
+        top: 8px;
+    }
+
+    .navSection ul {
+        list-style-type: none;
+        display: flex;
+        gap: 30px;
+        font: 20px;
+        padding-right: 2vw;
+    }
+
+    .navSection ul li {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        /* text-align: center; */
+        /* border: 2px solid red; */
+
+    }
+
+    .searchSection1 {
+        display: none;
+    }
+
+    .navLinks:hover {}
+
+    #suggestionsDropdown {
+        display: flex;
+        /* border: 1px solid black; */
+        position: absolute;
+        gap: 10px;
+
+    }
+
+    @media (max-width:768px) {
+        .searchSection {
+            display: none;
+        }
+
+        .navLeftSide {
+            display: flex;
+            gap: 3vw;
+            align-items: center;
+        }
+
+        .navSection h1 {
+            /* margin-right: 25vw; */
+            /* position: static; */
+            /* right: 100px; */
+            font-size: 28px;
+        }
+
+        .menuButton {
+            display: flex;
+        }
+
+        .searchSection1 {
+            display: block;
+            /* border: 2px solid; */
+            padding-left: 0;
+            /* font-size: 15px; */
+            /* margin-top: 100px; */
+            /* position: absolute; */
+            margin-top: 2px;
+            padding-top: 8px;
+            width: 100%;
+            /* left: 0; */
+            height: 7.5vw;
+        }
+
+        .searchSection1 input {
+            width: 95%;
+            height: 35px;
+            /* margin-left: 18px; */
+            position: relative;
+            left: 18px;
+            z-index: -2;
+            border: 1.5px solid;
+            padding-left: 15px;
+            border-radius: 15px;
+        }
+
+        .searchSection1 span {
+            /* border: 2px solid; */
+            z-index: 4;
+            position: relative;
+            right: 2vw;
+            top: 1vw;
+        }
+
+    }
+
+    @media(max-width:568px) {
+        .searchSection1 input {
+            /* width: 10px; */
+        }
+
+        .searchSection1 span {
+            z-index: 4;
+            position: relative;
+            /* right: 2vw; */
+            left: 150vw;
+            top: 1vw;
+        }
+
+        .searchSection1 {
+            /* border: 2px solid red; */
+        }
+
+        .searchSection1 #icon {
+            /* border: 2px solid red; */
+            width: 25px;
+            position: relative;
+            top: -30px;
+            left: 92vw;
+        }
+
+        .navSection ul {
+            /* list-style-type: none; */
+            /* display: flex; */
+            gap: 15px;
+            /* font: 20px; */
+            /* padding-right: 2vw; */
+        }
+    }
+
+    @media(max-width:550px) {
+        .navSection .contactLink {
+            display: none;
+        }
+
+        .searchSection1 input {
+            left: 10px;
+
+        }
+
+        .searchSection1 #icon {
+            /* position: relative; */
+            /* top: -30px; */
+            left: 89.9vw;
+        }
+    }
+
+    @media(max-width:360px) {
+        .cartText {
+            display: none;
+        }
+
+        .accountText {
+            display: none;
+        }
+
+        .searchSection1 #icon {
+            position: relative;
+            top: -30px;
+            left: 90vw;
+        }
+    }
+
+
+
+    .accountLink-main {
+        /* border: 2px solid rgb(220, 211, 211); */
+        /* border-radius: 10%; */
+        /* box-shadow: 2px 2px 10px rgba(159, 151, 151, 0.421); */
+        /* background-color: rgb(238, 235, 235); */
+        /* height: 2.5vw; */
+        /* width: 7.5vw; */
+        /* padding-left: 0.5vw; */
+        position: relative;
+    }
+
+    .accountLink {
+        border: 2px solid rgb(220, 211, 211);
+        border-radius: 10%;
+        box-shadow: 2px 2px 10px rgba(159, 151, 151, 0.421);
+        background-color: rgb(238, 235, 235);
+        /* height: 2.5vw; */
+        /* width: 7.5vw; */
+        padding-left: 0.5vw;
+        position: relative;
+    }
+
+    .beforeloginPopUp,
+    .afterloginPopUp {
+        display: none;
+        width: 220px;
+        background-color: rgb(255, 255, 255);
+        list-style-type: none;
+        position: absolute;
+        /* text-align: left; */
+        flex-direction: column;
+        gap: 10px;
+        /* left: 76vw; */
+        top: 42px;
+        border-radius: 5%;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        /* padding-left: 20px; */
+        box-shadow: 2px 2px 10px rgba(159, 151, 151, 0.421);
+
+    }
+
+    .afterloginPopUp {
+        width: 140px;
+        box-shadow: 2px 2px 10px rgba(159, 151, 151, 0.421);
+    }
+
+    .beforeloginPopUp span,
+    .afterloginPopUp span {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .beforeloginPopUp li,
+    .afterloginPopUp li {
+        width: 190px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .beforeloginPopUp span li,
+    .afterloginPopUp span li,
+    .afterloginPopUp span~a {
+        padding-left: 20px;
+    }
+
+    .beforeloginPopUp>li {
+        width: 220px;
+        padding-left: 40px;
+        /* margin-left: 0; */
+        border-bottom: 2px solid rgba(0, 0, 0, 0.26);
+    }
+
+    .beforeloginPopUp .material-symbols-outlined,
+    .afterloginPopUp .material-symbols-outlined {
+        font-size: 25px;
+    }
+
+    .accountLink:hover .beforeloginPopUp {
+        display: flex;
+    }
+
+    /* @media(max-width:1300px) {
+
+        .beforeloginPopUp,
+        .afterloginPopUp {
+            left: 72.5vw;
+        }
+    } */
+
+    @media (max-width: 1100px) {
+
+        .beforeloginPopUp,
+        .afterloginPopUp {
+            /* left: 69.5vw; */
+            /* Adjust position */
+            /* top: 45px; */
+        }
+    }
+
+    /* Medium screens (tablets) */
+    @media (max-width: 1024px) {
+
+        .beforeloginPopUp,
+        .afterloginPopUp {
+            /* left: 55vw; */
+            /* Adjust position */
+            /* top: 35px; */
+        }
+    }
+
+    /* Smaller screens (mobile) */
+    @media (max-width: 768px) {
+
+        .beforeloginPopUp,
+        .afterloginPopUp {
+            /* left: 45vw; */
+            /* Closer to center */
+            /* top: 30px; */
+        }
+    }
+
+    /* Extra small screens */
+    @media (max-width: 480px) {
+
+        .beforeloginPopUp,
+        .afterloginPopUp {
+            /* left: 30vw; */
+            /* Further left for small screens */
+            /* top: 25px; */
+        }
+    }
+</style>
+<!-- <script>
+    const accountHover = document.querySelector('.accountLink');
+    if (accountHover) {
+        let beforeLoginPopUp = document.querySelector('.beforeloginPopUp')
+
+        accountHover.addEventListener('mouseenter', () => {
+            console.log('mouseover on accountLink')
+            accountHover.style.backgroundColor = 'lightgreen'
+            beforeLoginPopUp.style.display = "flex ";
+
+        });
+        accountHover.addEventListener('mouseleave', () => {
+            console.log('mouseleave on accountLink')
+            beforeLoginPopUp.style.display = "none ";
+        })
+
+        // Keep the popup open when the mouse enters the popup
+        beforeLoginPopUp.addEventListener('mouseenter', () => {
+            console.log('mouseenter on beforeloginPopUp');
+            beforeLoginPopUp.style.display = "flex"; // Keep the popup open
+        });
+
+        // Hide the popup when the mouse leaves the popup
+        beforeLoginPopUp.addEventListener('mouseleave', () => {
+            console.log('mouseleave on beforeloginPopUp');
+            beforeLoginPopUp.style.display = "none"; // Hide the popup
+            // accountHover1.style.backgroundColor = ''; // Reset background color
+        });
+
+    } else {
+        console.error("Element not found!");
+    }
+
+</script> -->

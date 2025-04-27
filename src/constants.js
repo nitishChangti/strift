@@ -1,0 +1,1 @@
+export const DB_NAME = "e-commerce"        // this is database name

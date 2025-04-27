@@ -1,0 +1,5 @@
+// when admin create a cat then shows all cat with created cat
+// then when admin click on main cat then it shows sub-cats in listed form
+//if he want to edit a main cat he click on edit then he reaches to edit form with data then he can edit
+//if admin wants to add new sub-cat in main-cat so he click on add of sub-cat then he reaches to a sub-cat form then he can create a new sub-cat after submitting data and recieved success after added
+then reaches back main-cat with sub-cat he can see in listed 

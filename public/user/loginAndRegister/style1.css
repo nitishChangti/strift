@@ -1,0 +1,1360 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* login page */
+
+.login_page {
+    display: flex;
+    width: 920px;
+    height: 593px;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 2px 2px 10px rgb(159, 151, 151);
+
+}
+
+.login_page .section2 {
+    width: 660px;
+    /* border: 2px solid rebeccapurple; */
+}
+
+.login_page .section1 {
+    padding-left: 2vw;
+    padding-top: 18px;
+    width: 340px;
+    background-color: rgb(244 243 163);
+}
+
+.login_page .section1 h1 {
+    /* color: #fff; */
+    font-size: 40px;
+    color: rgba(165, 42, 42, 0.837);
+
+}
+
+.change {
+    text-decoration: none;
+    color: #2874f0;
+
+}
+
+.login_page .section1 p {
+    font-size: 25px;
+    margin-top: 51px;
+    color: rgba(165, 42, 42, 0.837);
+    font-weight: 400;
+    opacity: 0.9;
+    line-height: 30px;
+}
+
+
+.login_page .section1 img {
+    margin-top: 180px;
+    margin-left: 25px;
+}
+
+.login_page form {
+    margin-left: 46px;
+    margin-top: 85px;
+    /* border: 2px solid red; */
+    width: 510px;
+}
+
+.login_page .section2 form h2,
+.login_page .section2 form h2+p {
+    display: none;
+}
+
+.login_page form input {
+    width: 506px;
+    height: 5vh;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+    font-size: 19px;
+}
+
+.login_page form button {
+    width: 506px;
+    height: 5vh;
+    margin-top: 10px;
+}
+
+.login_page form div {
+    display: flex;
+    flex-direction: row;
+}
+
+.login_page form div+label {
+    /* position: relative; */
+    /* top: -10px; */
+    /* bottom: 60px;
+    left: 85px; */
+}
+
+.login_page form div input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid rgb(15, 89, 201);
+}
+
+.login_page form div input:focus~label {
+    /* transform: translateY(10px);
+    top: -25px;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.5; */
+}
+
+
+.login_page form div label {
+    /* position: relative; */
+    /* top: 0px; */
+    /* margin-top: -35px; */
+    /* font-size: 18px; */
+    /* font-weight: 400; */
+    /* opacity: 0.5; */
+    /* pointer-events: none; */
+    /* border: 2px solid red; */
+    /* transition: transform 0.3s ease-in-out; */
+    /* add transition effect */
+}
+
+.login_page form div label.active {
+    /* transform: translateY(10px); */
+    /* top: -25px; */
+    /* font-size: 15px; */
+    /* font-weight: 500; */
+    /* opacity: 0.5; */
+}
+
+.login_page form div+p {
+    /* display: block; */
+    font-size: 14px;
+    /* opacity: 0.67; */
+    font-weight: 400;
+    margin-top: 18px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.login_page form a {
+    text-decoration: none;
+    opacity: 1;
+    color: #2874f0;
+    /* margin-top: -15px; */
+    position: relative;
+    /* top: -15px; */
+}
+
+.login_page form p+input {
+    height: 3vw;
+    font-size: 18px;
+    background: #efefef;
+    box-shadow: 0 5px 5px 0 rgb(0 0 0);
+    border: none;
+    color: #000000;
+    margin-top: 1vw;
+}
+
+.login_page .section2 form~a {
+    text-decoration: none;
+    position: relative;
+    top: 288px;
+    left: 170px;
+    color: #2874f0;
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* border: 2px solid; */
+}
+
+@media(max-width:1000px) {
+    .login_page {
+        width: 90%;
+        height: 540px;
+
+    }
+
+    .login_page .section2 {
+        width: 62.8%;
+        /* border: 2px solid rebeccapurple; */
+    }
+
+    .login_page .section1 {
+        padding-left: 2vw;
+        padding-top: 2%;
+        width: 37%;
+        background-color: rgb(244 243 163);
+    }
+
+    .login_page .section1 p {
+        font-size: 2.5vw;
+        margin-top: 8%;
+        color: rgba(165, 42, 42, 0.837);
+        font-weight: 400;
+        opacity: 0.9;
+        width: 97%;
+        line-height: 25px;
+        /* border: 2px solid #000000; */
+    }
+
+    .login_page .section1 h1 {
+        font-size: 35px;
+        color: rgba(165, 42, 42, 0.837);
+    }
+
+    .login_page .section1 img {
+        position: absolute;
+        top: 41%;
+        left: 7%;
+        width: 20%;
+        height: auto;
+    }
+
+    /*  */
+    .login_page form {
+        margin-left: 8%;
+        margin-top: 14%;
+        /* border: 2px solid red; */
+        width: 85%;
+    }
+
+    .login_page form input {
+        height: 6.5vh;
+        font-size: 19px;
+    }
+
+    #phone {
+        width: 47.5vw;
+    }
+
+    .login_page form button {
+        width: 100%;
+        height: 6.5vh;
+        margin-top: 10px;
+        font-size: 95%;
+    }
+
+    .login_page form div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .login_page form div+label {
+        position: relative;
+        top: -10px;
+        bottom: 60px;
+        left: 85px;
+    }
+
+    .login_page form div input:focus {
+        outline: none;
+        border: none;
+        border-bottom: 1.5px solid rgb(15, 89, 201);
+    }
+
+    .login_page form div input:focus~label {
+        /* transform: translateY(10px);
+    top: -25px;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.5; */
+    }
+
+
+    .login_page form div label {
+        /* position: relative; */
+        /* top: 0px; */
+        /* margin-top: -35px; */
+        /* font-size: 18px; */
+        /* font-weight: 400; */
+        /* opacity: 0.5; */
+        /* pointer-events: none; */
+        /* border: 2px solid red; */
+        /* transition: transform 0.3s ease-in-out; */
+        /* add transition effect */
+    }
+
+    .login_page form div label.active {
+        /* transform: translateY(10px); */
+        /* top: -25px; */
+        /* font-size: 15px; */
+        /* font-weight: 500; */
+        /* opacity: 0.5; */
+    }
+
+    .login_page form p {
+        /* border: 2px solid #000000; */
+        font-size: 1.5vw;
+        /* opacity: 0.67; */
+        font-weight: 400;
+        margin-top: 1px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .login_page form a {
+        text-decoration: none;
+        opacity: 1;
+        color: #2874f0;
+        /* margin-top: -15px; */
+        position: relative;
+        /* top: -15px; */
+    }
+
+    .login_page form p+input {
+        height: 3vw;
+        font-size: 18px;
+        background: #efefef;
+        box-shadow: 0 5px 5px 0 rgb(0 0 0);
+        border: none;
+        color: #000000;
+        margin-top: 1vw;
+    }
+
+    .login_page .section2 form~a {
+        text-decoration: none;
+        position: relative;
+        top: 48%;
+        left: 27%;
+        color: #2874f0;
+        font-weight: 500;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        /* border: 2px solid; */
+    }
+
+}
+
+@media (max-width: 768px) {
+    nav~.searchSection1 {
+        display: none;
+    }
+
+    .login_page {
+        width: 80%;
+        height: 540px;
+    }
+
+    .login_page .section1 {
+        display: none;
+    }
+
+    .login_page .section2 form h2,
+    .login_page .section2 form h2~p {
+        display: block;
+    }
+
+    .login_page .section2 form h2 {
+        font-size: 20px;
+    }
+
+    .login_page .section2 form h2+p {
+        font-size: 15px;
+        margin-top: 3%;
+    }
+
+    .login_page .section2 {
+        width: 100%;
+        /* border: 2px solid rebeccapurple; */
+    }
+
+    /*  */
+    .login_page .section2 form {
+        margin-left: 8%;
+        margin-top: 4%;
+        /* border: 2px solid red; */
+        width: 85%;
+    }
+
+
+    .login_page .section2 form input {
+        height: 6.5vh;
+        /* border: none; */
+        font-size: 19px;
+    }
+
+    .iti__flag-container {
+        margin-top: 30px;
+        height: 45px;
+    }
+
+    #phone {
+        width: 67.3vw;
+        position: relative;
+        top: 85%;
+    }
+
+    .login_page form button {
+        width: 100%;
+        height: 6.5vh;
+        margin-top: 5%;
+        font-size: 95%;
+    }
+
+    .login_page form div {
+        display: flex;
+        flex-direction: row;
+        /* margin-top: 2%; */
+    }
+
+    .login_page form div input:focus {
+        outline: none;
+        border: none;
+        border-bottom: 1.5px solid rgb(15, 89, 201);
+    }
+
+    .login_page form div input:focus~label {
+        /* transform: translateY(10px);
+    top: -25px;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.5; */
+    }
+
+
+    .login_page form div label {
+        /* position: relative; */
+        /* top: 0px; */
+        /* margin-top: -35px; */
+        /* font-size: 18px; */
+        /* font-weight: 400; */
+        /* opacity: 0.5; */
+        /* pointer-events: none; */
+        /* border: 2px solid red; */
+        /* transition: transform 0.3s ease-in-out; */
+        /* add transition effect */
+    }
+
+    .login_page form div label.active {
+        /* transform: translateY(10px); */
+        /* top: -25px; */
+        /* font-size: 15px; */
+        /* font-weight: 500; */
+        /* opacity: 0.5; */
+    }
+
+    .login_page form div~p {
+        /* border: 2px solid #000000; */
+        font-size: 2.2vw;
+        /* opacity: 0.67; */
+        font-weight: 400;
+        margin-top: 40px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .login_page form a {
+        text-decoration: none;
+        opacity: 1;
+        color: #2874f0;
+        /* margin-top: -15px; */
+        position: relative;
+        /* top: -15px; */
+    }
+
+    .login_page form p+input {
+        height: 3vw;
+        font-size: 18px;
+        background: #efefef;
+        box-shadow: 0 5px 5px 0 rgb(0 0 0);
+        border: none;
+        color: #000000;
+        margin-top: 1vw;
+    }
+
+    .login_page .section2 form~a {
+        text-decoration: none;
+        position: relative;
+        top: 2vw;
+        /* margin-top: 10vw; */
+        /* text-align: center; */
+        left: 25%;
+        /* margin-left: 28%; */
+        color: #2874f0;
+        font-weight: 500;
+        font-size: 2vw;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        /* border: 2px solid; */
+    }
+
+}
+
+@media(max-width:425px) {
+    .login_page {
+        width: 95%;
+        height: 540px;
+    }
+
+    .login_page .section2 form h2 {
+        font-size: 4.7vw;
+    }
+
+    .login_page .section2 form h2+p {
+        font-size: 3.5vw;
+        margin-top: 3%;
+    }
+
+    .login_page .section2 form input {
+        height: 4vh;
+        /* border: none; */
+        font-size: 15px;
+    }
+
+    .iti__flag-container {
+        margin-top: 20px;
+        height: 30px;
+    }
+
+    #phone {
+        width: 80vw;
+        position: relative;
+        top: 95%;
+    }
+
+    .login_page form div~p {
+        font-size: 2.7vw;
+    }
+
+    .login_page form button {
+        height: 4vh;
+
+        font-size: 80%;
+    }
+
+    .login_page .section2 form~a {
+        font-size: 3vw;
+    }
+
+}
+
+.otp_verify {
+    /* border: 2px solid navy; */
+    display: none;
+    /* display: flex; */
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    gap: 0;
+    width: 75%;
+}
+
+.otp_verify .otp_section_1 {
+    text-align: center;
+    /* border: 2px solid navy; */
+    padding-top: 45px;
+    /* font-size: 20px; */
+}
+
+.otp_verify .otp_section_1 span a {
+    color: #2874f4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.otp_verify,
+.otp_section_1 h1 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25px;
+    /* margin-top: 10px; */
+}
+
+.otp_verify .otp_section_1 span {
+    font-size: 18px;
+}
+
+.otp_verify .otp_section_1 span p a {
+    text-decoration: none;
+    color: #2874f4;
+}
+
+.otp_verify form span input[type="tel"]:focus {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(15, 89, 201) !important;
+    /* box-shadow: none;1 */
+}
+
+.otp_verify form span {
+    display: flex;
+    /* flex-direction: row; */
+    gap: 15px;
+    /* position: relative; */
+    /* left: 23.5%; */
+
+}
+
+.otp_verify form span input[type="tel"] {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+    top: -15px;
+    left: 23.5%;
+}
+
+
+
+.otp_verify form span+input {
+    background-color: #2874f4;
+    margin-top: 20px;
+    position: relative;
+    right: 5px;
+    color: #fff;
+    width: 99.3%;
+}
+
+.otp_verify span p {
+    margin-top: 30px;
+    /* border: 2px solid navy; */
+    text-align: center;
+    font-size: 15px;
+    /* opacity: 0.7; */
+}
+
+.otp_verify span p a {
+    text-decoration: none;
+    color: #2874f4;
+    /* opacity: 1; */
+
+}
+
+@media (max-width:768px) {
+    .otp_verify {
+        /* border: 2px solid navy; */
+        /* display: none; */
+        width: 100%;
+    }
+
+    .otp_verify form span {
+        justify-content: center;
+
+    }
+
+    .otp_verify form span input[type="tel"] {
+        left: 0;
+        text-align: center;
+    }
+}
+
+@media(max-width:360px) {
+    .otp_verify form span input[type="tel"] {
+        width: 15%;
+    }
+}
+
+.fix {
+    margin-left: -563px;
+    margin-top: 13vw;
+    height: 1.4vw;
+}
+
+/* otp verification popup notification */
+.Verification_code_sent {
+    display: none;
+    /* display: flex; */
+    background-color: #3b3737;
+    color: #fff;
+    height: 50px;
+    width: 350px;
+    /* margin-left: 50px; */
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    /* transform: translate(top, left); */
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.Verification_code_sent .material-symbols-outlined {
+    /* margin-left: 55px; */
+    margin-top: 0px;
+    font-size: 40px;
+    color: rgb(20, 185, 20);
+}
+
+.Verification_code_sent h1 {
+    font-weight: 400;
+    font-size: 18px;
+    /* margin-top: 25px; */
+}
+
+
+@media (max-width:1000px) {
+
+    .Verification_code_sent {
+        top: 70%;
+        left: 45%;
+        width: 35%;
+    }
+
+
+    .Verification_code_sent h1 {
+        font-size: 100%;
+    }
+}
+
+@media (max-width:868px) {
+    .Verification_code_sent {
+        top: 70%;
+        left: 45%;
+        width: 40%;
+    }
+
+    .Verification_code_sent h1 {
+        font-size: 100%;
+    }
+
+    .Verification_code_sent .material-symbols-outlined {
+
+        font-size: 5vw;
+    }
+}
+
+@media (max-width:768px) {
+    .Verification_code_sent {
+        top: 70%;
+        left: 30%;
+        width: 40%;
+
+    }
+
+    .Verification_code_sent h1 {
+        font-size: 85%;
+    }
+
+    .Verification_code_sent .material-symbols-outlined {
+
+        font-size: 6vw;
+    }
+}
+
+@media (max-width:659px) {
+    .Verification_code_sent {
+        top: 70%;
+        left: 25%;
+        width: 48%;
+    }
+
+    .Verification_code_sent h1 {
+        font-size: 2.5vw;
+    }
+
+    .Verification_code_sent .material-symbols-outlined {
+
+        font-size: 5vw;
+    }
+}
+
+@media (max-width:425px) {
+    .Verification_code_sent {
+        top: 70%;
+        left: 25%;
+        width: 55%;
+        height: 6%;
+    }
+
+    .Verification_code_sent h1 {
+        font-size: 3vw;
+    }
+
+}
+
+/* register */
+
+.register {
+    /* display: flex; */
+    display: none;
+    width: 920px;
+    height: 593px;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-shadow: 2px 2px 10px rgb(159, 151, 151);
+
+}
+
+.register .section1 {
+    padding-left: 2vw;
+    padding-top: 18px;
+    width: 340px;
+    background-color: rgb(244 243 163);
+}
+
+.register .section1 h1 {
+    margin-top: 25px;
+    line-height: 30px;
+    color: rgba(165, 42, 42, 0.837);
+    font-size: 30px;
+}
+
+.register .section1 p {
+    font-size: 18px;
+    margin-top: 25px;
+    /* border: 2px solid red; */
+    color: rgba(165, 42, 42, 0.837);
+    font-weight: 400;
+    opacity: 0.9;
+    line-height: 25px;
+}
+
+.register .section1 img {
+    margin-top: 180px;
+    margin-left: 15px;
+}
+
+.register .section2 form {
+    padding-left: 3vw;
+    padding-top: 10vh;
+}
+
+.register .section2 {
+    width: 660px;
+    /* display: none; */
+    /* border: 2px solid red; */
+}
+
+
+.register .section2 form input {
+    width: 500px;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+    font-size: 19px;
+}
+
+.register .section2 form p~input {
+    margin-top: 30px;
+}
+
+.register .section2 form~button {
+    height: 50px;
+    font-size: 19px;
+    background: #efefef;
+    box-shadow: 0 5px 5px 0 rgb(0 0 0);
+    border: none;
+    color: #000000;
+    margin-top: 1.8vw;
+    width: 500px;
+    margin-left: 3vw;
+}
+
+.register form div {
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.register form div input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid rgb(15, 89, 201);
+}
+
+/* 
+.register form div input:focus~label {
+    transform: translateY(10px);
+    top: -25px;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.5;
+} */
+
+
+.register form div label {
+    /* position: relative; */
+    /* top: 0px; */
+    /* margin-top: -35px; */
+    /* font-size: 18px; */
+    /* font-weight: 400; */
+    /* opacity: 0.5; */
+    /* pointer-events: none; */
+    /* border: 2px solid red; */
+    /* transition: transform 0.3s ease-in-out; */
+    /* add transition effect */
+}
+
+.register_active,
+.upword {
+    /* transform: translateY(10px);
+
+    margin-top: -50px;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.5; */
+
+    /* transform: translateY(10px) !important;
+    top: -30px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    opacity: 0.5 !important; */
+}
+
+.register form p {
+    font-size: 14px;
+    /* opacity: 0.67; */
+    font-weight: 400;
+    margin-top: 1.7vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.register .section2 form a {
+    text-decoration: none;
+    opacity: 1;
+    color: #2874f0;
+    /* margin-top: -15px; */
+    position: relative;
+    /* top: -15px; */
+}
+
+.register form p+input {
+    /* height: ; */
+    /* font-size: 18px; */
+    background: #efefef;
+    box-shadow: 0 5px 5px 0 rgb(0 0 0);
+    border: none;
+    color: #000000;
+    margin-top: 1vw;
+}
+
+.register .section2 form~a {
+    text-decoration: none;
+    position: relative;
+    top: 17vw;
+    left: 9.9vw;
+    color: #2874f0;
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /* border: 2px solid; */
+}
+
+.register .section3 {
+    display: none;
+}
+
+.register .section2 form .register_section2_form2_button {
+    width: 43%;
+    position: absolute;
+    top: 50%;
+    left: 381px;
+    /* right: 79%; */
+    text-align: center;
+}
+
+@media (max-width:1000px) {
+    .register {
+        width: 90%;
+        height: 540px;
+
+    }
+
+    #phone1 {
+        width: 47.8vw;
+        padding-top: 0vw;
+    }
+
+    .register .section2 {
+        width: 62.8%;
+        /* border: 2px solid rebeccapurple; */
+    }
+
+    .register .section1 {
+        padding-top: 2%;
+        width: 37%;
+    }
+
+    .register form input {
+        width: 90%;
+        height: 50px;
+    }
+
+    .register .section2 form p~input {
+        width: 90%;
+    }
+
+    .register .section2 form+button {
+        width: 85%;
+    }
+
+    .register form p {
+        margin-top: 20px;
+
+        font-size: 1.5vw;
+    }
+
+    .register .section1 img {
+        position: absolute;
+        top: 41%;
+        left: 9%;
+        /* margin-top: 55%; */
+        /* margin-left: 15%; */
+        width: 20%;
+        height: auto;
+    }
+
+    .register .section1 p {
+        width: 95%;
+        /* border: 2px solid red; */
+    }
+
+}
+
+@media (max-width:768px) {
+    .register .section1 {
+        display: none;
+    }
+
+    .register form div {
+        margin-top: 1%;
+    }
+
+    .register {
+        width: 80%;
+        height: 540px;
+    }
+
+    #phone1 {
+        width: 68.7vw;
+        padding-top: 1.5vw;
+    }
+
+
+    .register .section2 {
+        width: 100%;
+    }
+
+    .register .section2 form+button {
+        margin-top: 25px;
+        height: 10vw;
+
+        width: 86.7%;
+        font-size: 2.5vw;
+    }
+
+    .register .section2 form p~input {
+        font-size: 2.5vw;
+        /* height: 918%; */
+    }
+
+    .register .section2 form p~input {
+        height: 10vw;
+    }
+
+    .register form p {
+        font-size: 2.2vw;
+    }
+
+}
+
+.register .section3 {
+    /* border: 2px solid red; */
+    width: 580px;
+}
+
+.register .section3 .form1 {
+    padding: 0;
+    padding-left: 50px;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid rebeccapurple; */
+    height: 80px;
+}
+
+.register .section3 .form1 div {
+    /* height: 10px; */
+}
+
+.register .section3 .form1 input {
+    width: 480px;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+    /* font-size: 19px; */
+}
+
+.register .section3 .form1 a {
+    text-decoration: none;
+    opacity: 1;
+    color: #2874f0;
+    position: relative;
+    top: 0px;
+    right: 70px;
+}
+
+.register .section3 .otp-notification {
+    display: flex;
+    gap: 273px;
+    align-items: center;
+    /* border: 2px solid red; */
+    margin-top: 20px;
+    padding-left: 50px;
+}
+
+.register .section3 .otp-notification h1 {
+    font-size: 17px;
+    font-weight: 400;
+    /* border: 2px solid red; */
+}
+
+.register .section3 .otp-notification a {
+    text-decoration: none;
+    opacity: 1;
+    color: #2874f0;
+}
+
+.register .section3 .form2 {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* border: 2px solid red; */
+    height: 115px;
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
+.register .section3 .form2 input {
+    width: 480px;
+    height: 40px;
+    /* margin-left: 0px; */
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.301);
+    font-size: 19px;
+}
+
+.register .section3 .form2 div~input {
+    margin-left: 49px;
+    height: 400px;
+}
+
+.register .sec .form2 div input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid rgb(15, 89, 201);
+}
+
+.register .section3 .form2 div input:focus~label {
+    transform: translateY(-20px);
+    /* top: -35px; */
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.register .section3 .form2 div {
+    display: flex;
+    margin-left: 49px;
+    flex-direction: column;
+
+}
+
+.register .section3 .form2 div~input {
+    /* border: none; */
+}
+
+.register .section3 .form2 div label {
+    /* position: relative; */
+    /* top: 0px; */
+    margin-top: -30px;
+    width: 85px;
+    /* height: 25px; */
+    font-size: 18px;
+    font-weight: 400;
+    /* opacity: 0.5; */
+    pointer-events: none;
+    /* border: 2px solid red; */
+    transition: transform 0.3s ease-in-out;
+    /* add transition effect */
+}
+
+.register .section3 .form2 div label.active {
+    /* transform: translateY(10px);
+    top: -25px;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.5; */
+}
+
+.upword {
+    transform: translateY(-20px) !important;
+    top: -30px !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    opacity: 0.5 !important;
+}
+
+.register .section3 .form2~button {
+    width: 480px;
+    height: 40px;
+    margin-left: 49px;
+    margin-top: 20px;
+}
+
+@media (max-width:1000px) {
+    .register .section3 {
+        width: 63%;
+    }
+
+    .register .section3 .form1 input {
+        width: 46vw;
+        height: 40px;
+    }
+
+
+    .register .section3 .otp-notification {
+        display: flex;
+        gap: 0;
+        width: 80%;
+        /* align-items: center; */
+        /* border: 2px solid red; */
+        justify-content: space-between;
+        margin-top: 20px;
+        margin-left: 50px;
+        padding-left: 0px;
+    }
+
+    .register .section3 .otp-notification h1 {
+        width: 40%;
+        font-size: 2vw;
+        /* align-items: flex-start; */
+
+    }
+
+    .register .section3 .form2 {
+        margin-top: 20px;
+    }
+
+    .register .section3 .form2 input {
+        width: 90%;
+        height: 40px;
+
+    }
+
+    .register .section3 .form2 div~input {
+        margin-left: 49px;
+        height: 400px;
+        width: 82%;
+    }
+
+    .register .sec .form2 div input:focus {
+        outline: none;
+        border: none;
+        border-bottom: 1.5px solid rgb(15, 89, 201);
+    }
+
+    .register .section3 .form2 div input:focus~label {
+        transform: translateY(-20px);
+        /* top: -35px; */
+        font-size: 15px;
+        font-weight: 500;
+        opacity: 0.5;
+    }
+
+    .register .section3 .form2 div {
+        display: flex;
+        margin-left: 49px;
+
+        flex-direction: column;
+    }
+
+    .register .section3 .form2 div label {
+        /* position: relative; */
+        /* top: 0px; */
+        margin-top: -30px;
+        width: 85px;
+        /* height: 25px; */
+        font-size: 18px;
+        font-weight: 400;
+        /* opacity: 0.5; */
+        pointer-events: none;
+        /* border: 2px solid red; */
+        transition: transform 0.3s ease-in-out;
+        /* add transition effect */
+    }
+
+    .register .section3 .form2 div label.active {
+        /* transform: translateY(10px);
+        top: -25px;
+        font-size: 15px;
+        font-weight: 500;
+        opacity: 0.5; */
+    }
+
+    .upword {
+        transform: translateY(-20px) !important;
+        top: -30px !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        opacity: 0.5 !important;
+    }
+
+    .register .section3 .form2~button {
+        width: 82.2%;
+        height: 40px;
+        margin-left: 49px;
+        margin-top: 20px;
+    }
+}
+
+@media(max-width:768px) {
+    .register .section3 {
+        width: 100%;
+    }
+
+    .register .section3 .form1 div {
+        margin-top: -1.5px;
+    }
+
+    .register .section3 .form1 input {
+        width: 63vw;
+        height: 40px;
+    }
+
+    .register .section3 .otp-notification {
+        /* display: flex; */
+        gap: 0;
+        width: 77.2%;
+        /* align-items: center; */
+        border: 2px solid red;
+        justify-content: space-between;
+        margin-top: 15px;
+        margin-left: 50px;
+        padding-left: 0px;
+    }
+
+    .register .section3 .otp-notification h1 {
+        font-size: 3vw;
+        width: 50%;
+    }
+
+    .register .section3 .form2 {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width:425px) {
+    .register .section3 .form1 input {
+        width: 59.5vw;
+    }
+
+    .register .section3 .form1 div {
+        margin-top: 4.5px;
+    }
+
+    .register .section3 .otp-notification h1 {
+        font-size: 3.5vw;
+    }
+
+    .register .section3 .form2~button {
+        width: 77%;
+    }
+
+    .register .section3 .form2 div~input {
+        width: 77%;
+    }
+
+    .register .section3 .otp-notification {
+        width: 74.3%;
+    }
+
+
+}

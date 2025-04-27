@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Dropdown Example</title>
+    <style>
+        .loginLink {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .loginDropdown {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 1000;
+            min-width: 160px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="loginLink">Login</button>
+    <div class="loginDropdown">
+        <p>Please log in to access your account.</p>
+        <button>Log In</button>
+        <button>Sign Up</button>
+    </div>
+
+    <script>
+        const loginLink = document.querySelector('.loginLink');
+        const loginDropdown = document.querySelector('.loginDropdown');
+
+        loginLink.addEventListener('mouseenter', () => {
+            loginDropdown.style.display = 'block';
+        });
+
+        loginLink.addEventListener('mouseleave', () => {
+            if (!loginDropdown.matches(':hover')) {
+                loginDropdown.style.display = 'none';
+            }
+        });
+
+        loginDropdown.addEventListener('mouseenter', () => {
+            loginDropdown.style.display = 'block';
+        });
+
+        loginDropdown.addEventListener('mouseleave', () => {
+            loginDropdown.style.display = 'none';
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="/profile.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="navSection">
+
+  </nav>
+  <div class="maincontent">
+    <nav class="sidebar">
+      <ul>
+        <li class="main-item"><i class="ri-folder-upload-fill"></i></i>My Orders</li>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-account-circle-fill"></i>ACCOUNT SETTING</li>
+        <ul class="sub-menu">
+          <li onclick="showContent('profile')">Profile Information</li>
+          <li onclick="showContent('addresses')">Manage Addresses</li>
+          <li onclick="showContent('pancard')">PAN Card Information</li>
+        </ul>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-bank-card-fill"></i>PAYMENTS</li>
+        <ul class="sub-menu">
+          <li onclick="showContent('giftcards')">Gift Cards</li>
+          <li onclick="showContent('savedupi')">Saved UPI</li>
+          <li onclick="showContent('savedcards')">Saved Cards</li>
+        </ul>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-folder-4-fill"></i>MY STUFF</li>
+        <ul class="sub-menu">
+          <li onclick="showContent('coupons')">My Coupns</li>
+          <li onclick="showContent('review')">MY Review & Ratings</li>
+          <li onclick="showContent('notifications')">All Notification</li>
+          <li onclick="showContent('wishlist')">My Wishlist</li>
+        </ul>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-arrow-down-circle-fill"></i>Logout</li>
+      </ul>
+    </nav>
+    <section class="content">
+      <div id="profile" class="content-section">
+        <h2>Personal Information &nbsp;&nbsp; <span id="editPersonalInfo">Edit</span> </h2>
+        <form>
+          <input class="in" id="input1" placeholder="" name="firstName" disabled>
+          <input class="in" id="input2" placeholder="" name="lastName" disabled>
+          <button id="savePersonalInfo" style="display: none;">Save</button>
+          <p>Your Gender</p>
+          <label> <input type="radio" name="gender" value="male" id="genderMale" required disabled>Male</label>
+          <label><input type="radio" name="gender" value="female" id="genderFemale" required disabled>Female</label>
+        </form>
+        <div class="heading" id="email_sec">
+          <h2>Email Address</h2>
+          <p id="edit" class="edit_Email">Edit</p>
+        </div>
+        <form>
+          <label><input class="in" type="email" value="" name="emailAddress" id="emailInput" readonly></label>
+          <button id="saveEmail" style="display: none;">Save</button>
+        </form>
+        <div class="heading Number_sec">
+          <h2>Mobile Number</h2>
+          <p id="edit">Edit</p>
+        </div>
+        <form>
+          <label><input class="in" type="tel" value="" id="mobileInput" name="mobileNumber" readonly></label>
+          <button id="save_Mobile" style="display: none;">Save</button>
+        </form>
+      </div>
+      <div id="addresses" class="content-section">
+        <h2>Manage Address</h2>
+
+        <button class="ad" id="adr"> Add Address</button>
+        <form method="post" action="/account/profile/address" class="address-form" id="adr-form">
+          <input type="text" placeholder="name" name="name" required>
+          <input type="text" placeholder="Phone (e.g., +91123456789)" name="phoneNumber" required>
+          <input type="text" placeholder="pincode" name="pinCode" required>
+          <input type="text" placeholder="locality" name="locality" required>
+          <textarea name="address" id="" required rows="" cols="4"></textarea>
+          <input type="text" placeholder="city" name="city" required>
+          <input type="text" placeholder="state" name="state" required>
+          <input type="text" placeholder="landmark" name="landmark" required>
+          <input type="number" placeholder="alternate number (optional)" name="altNumber">
+          <title>Address Type</title>
+          <label> <input type="radio" name="addressType" value="home" required> Home</label>
+          <label> <input type="radio" name="addressType" value="work" required>Work</label>
+          <button class="save-btn">Save</button>
+          <button class="cancel-btn" onclick="cancle()">Cancle</button>
+        </form>
+
+        <div class="adr-show">
+          <!-- <div class="sec-1">
+           <span>Home</span>
+          <span><i class="ri-more-2-fill"></i></span>
+        </div>
+        <div class="sec-2">
+          <div class="small-sec">
+          <span>Name</span>
+          <span>1234567890</span>
+         </div>
+          <p>Lorem ipsum dolor sit amet consectetur 
+            <br>adipisicing elit. Consequuntur, laudantium?</p>
+          </div> -->
+        </div>
+      </div>
+
+
+
+
+      <div id="pancard" class="content-section">
+        <h2>PAN Card Information</h2>
+        <label><input class="pan" type="text" placeholder="PAN Card Number"></label> <br>
+        <label><input class="pan" type="text" placeholder="FULL Name"></label> <br>
+        <form class="fr" method="post" enctype="multipart/form-data">
+          <label><input class="pn" type="text" placeholder="Upload PAN Card (Only JPEG file is allowed)"
+              readonly></label> <br>
+          <label><input type="file"></label>
+        </form>
+        <div class="check"> <input class="box" type="checkbox">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum maiores magni ex recusandae omnis possimus
+            earum quidem, perspiciatis,<br>harum fuga voluptas voluptatibus eaque enim. Totam, soluta accusantium?
+            Magnam, dolores fugit maiores cupiditate laudantium <br>sunt dolor eius.
+            Laudantium dolores enim repudiandae.</p>
+        </div>
+        <button class="btn">UPLOAD</button>
+        <H2 id="terms">Read Terms & Condition of PAN Card Information</H2>
+      </div>
+      <div id="giftcards" class="content-section">No Gift Card Available.</div>
+      <div id="savedupi" class="content-section">Not yet saved any UPI.</div>
+      <div id="savedcards" class="content-section">Not yet saved any Cards.</div>
+      <div id="coupons" class="content-section">
+        <h2>Available Coupons</h2>
+        <table>
+          <tr>
+            <td>Extra 30% OFF</td>
+            <td>Extra 30% OFF (Valid till 11:59 PM,31 Dec)</td>
+          </tr>
+          <td>Extra 30% OFF</td>
+          <td>Extra 30% OFF (Valid till 11:59 PM,31 Dec)</td>
+          </tr>
+          <td>Extra 20% OFF</td>
+          <td>Extra 20% OFF On 200$ Purchase</td>
+          </tr>
+          <td>Extra 10% OFF</td>
+          <td>Extra 30% OFF (Valid till 11:59 PM,31 Dec)</td>
+          </tr>
+        </table>
+      </div>
+      <div id="review" class="content-section">No reviews.</div>
+      <div id="notifications" class="content-section">Turn on Notifications.</div>
+      <div id="wishlist" class="content-section">No Items Added to wishlist.</div>
+    </section>
+  </div>
+  <footer>
+    <div class="footer_Section1">
+      <div class="f1">
+        <div>
+          <h1>ABOUT</h1>
+          <ul>
+            <li>Contact Us</li>
+            <li>About Us</li>
+            <!-- <li>Careers</li> -->
+            <!-- <li>Flipkart Stories</li> -->
+            <!-- <li>Press</li> -->
+            <!-- <li>Corporate Information</li> -->
+          </ul>
+        </div>
+        <div>
+          <h1>GROUP COMPANIES</h1>
+          <ul>
+            <li>Myntra</li>
+            <li>Cleartrip</li>
+            <li>Shopsy</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="f2">
+          <h1>HELP</h1>
+          <ul>
+            <li>Payment</li>
+            <li>Shipping</li>
+            <li>Cancellation & Returns</li>
+            <li>FAQ</li>
+            <li>Report Ingringement</li>
+          </ul>
+        </div>
+        <!-- <div>
+          <h1>CONSUMNER POLICY</h1>
+          <ul>
+            <li>Cancellation & Returns</li>
+            <li>Terms Of Use</li>
+            <li>Security</li>
+            <li>Privacy</li>
+            <li>Sitemap</li> -->
+        <!-- <li>Grievance Redressal</li> -->
+        <!-- <li>EPR Compliance</li> -->
+        <!-- </ul> -->
+        <!-- </div> -->
+      </div>
+      <div class="follow">
+        <h2 class="social">follow us</h2>
+      </div>
+      <div class="mail">
+        <h1>Mail Us:</h1>
+        <address>
+          Strift Internet Private Limited, <br />
+          Buildings Alyssa, Begonia & <br />
+          Clove Embassy Tech Village, <br />
+          Outer Ring Road, <br />
+          Bengaluru, 560103, <br />
+          Karnataka, India <br />
+        </address>
+        <h1>Social</h1>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+        <i class="fa-brands fa-youtube"></i>
+      </div>
+      <div class="mail2">
+        <h1>Registered Office Address:</h1>
+        <address>
+          Strift Internet Private Limited, <br />
+          Buildings Alyssa, Begonia & <br />
+          Clove Embassy Tech Village, <br />
+          Outer Ring Road, Devarabeesanahalli Village, <br />
+          Bengaluru, 560103, <br />
+          Karnataka, India <br />
+          CIN : U51109KA2012PTC066107 <br />
+          Telephone: <a href="">044-45614700</a>&nbsp; / &nbsp;<a href="">044-67415800</a>
+        </address>
+      </div>
+    </div>
+    <!-- <div class="floow">
+      <h2>follow us</h2>
+    </div> -->
+    <!-- <div class="footer_Section2">
+        <span><img src="../../../images/suitecase.png" alt=""> &nbsp;&nbsp;
+            <h1>Become a Seller</h1>
+        </span>
+        <span><img src="../../../images/star-inside-circle.png" alt="">&nbsp;&nbsp;
+            <h1>Advertise</h1>
+        </span>
+        <span><img src="../../../images/gift-card.png" alt="">&nbsp;&nbsp;
+            <h1>Gift Cards</h1>
+        </span>
+        <span><img src="../../../images/help-center.png" alt="">&nbsp;&nbsp;
+            <h1>Help Center</h1>
+        </span>
+        <h1>© 207-2024 Flipkart.com</h1>
+        <img src="../../../images/a.jpg" alt="">&nbsp;&nbsp;
+    </div> -->
+
+    <style>
+      footer {
+        /* border: 2px solid red; */
+        background-color: #060606;
+        position: relative;
+        left: 1px;
+        /* top: 1vw; */
+        width: 100%;
+      }
+
+      footer .footer_Section1 {
+        /* margin-top: 1vw; */
+        padding-top: 2vw;
+        display: flex;
+        /* justify-content: space-evenly; */
+        flex-wrap: wrap;
+        /* gap: 10px; */
+      }
+
+      footer .footer_Section1 div {
+        /* border: 2px solid; */
+        margin-left: 4.5vw;
+      }
+
+      footer div h1,
+      address h1 {
+        font-size: 13px;
+        color: #a0a0a087;
+        font-weight: 400;
+      }
+
+      footer div ul,
+      address {
+        list-style-type: none;
+        padding-left: 0;
+        color: #fff;
+      }
+
+      footer div ul li,
+      address {
+        font-size: 13px;
+        line-height: 2;
+        font-style: normal;
+      }
+
+      footer div i {
+        width: 30px;
+        font-size: 20px;
+        background-color: #172337;
+        color: #fff;
+      }
+
+      footer .mail {
+        border: none;
+        border-left: 1px solid #878787;
+        padding-left: 30px;
+      }
+
+      footer div address a {
+        /* text-decoration: none; */
+        list-style-type: none;
+        color: #2874f0;
+      }
+
+      footer .footer_Section2 {
+        display: flex;
+        padding-left: 5vw;
+        gap: 60px;
+        margin-top: 2.6vw;
+        border: none;
+        border-top: 2px solid #878787;
+        padding-top: 2vw;
+        padding-bottom: 1vw;
+      }
+
+      footer .footer_Section2 img {
+        width: 25px;
+        height: 2.3vw;
+      }
+
+      footer .footer_Section2 span {
+        display: flex;
+      }
+
+      footer .footer_Section2 h1 {
+        color: #fff;
+        font-size: 17px;
+      }
+
+      footer .footer_Section2 h1~img {
+        width: 30vw;
+        background-color: #172337;
+        height: 1.5vw;
+      }
+
+      .social {
+        color: #fff;
+        margin-left: 35%;
+      }
+
+      @media (max-width: 550px) {
+        .footer_Section1 {
+          display: flex;
+          flex-direction: row;
+          /* flex-wrap: wrap; */
+        }
+
+        .footer_Section1 .follow,
+        .mail,
+        .mail2 {
+          display: none;
+        }
+      }
+
+      @media (max-width: 1500px) {
+        .footer_Section1 {
+          display: flex;
+          flex-direction: row;
+          /* flex-wrap: wrap; */
+        }
+
+        .footer_Section1 .follow {
+          display: none;
+        }
+
+        .footer_Section1 .mail {
+          border-left: 0;
+        }
+      }
+    </style>
+  </footer>
+  <!-- <script src="../home/header.html"></script> -->
+  <script src="/profile.js"></script>
+  <!-- <script src="../../user/home/header.html"></script> -->
+</body>
+
+</html>

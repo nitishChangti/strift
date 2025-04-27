@@ -1,0 +1,83 @@
+// update multiple product req
+const updateProducts = asyncHandler(async (req, res) => {
+    try {
+        const { products } = req.body; // Assuming the request body has an array of products with their respective updates
+        if (!Array.isArray(products) || products.length === 0) {
+            return res.status(400).json({ message: "No products provided" });
+        }
+
+        const updatedProducts = []; // To hold the updated products
+
+        // Loop through each product update request
+        for (const productData of products) {
+            const { id, name, Categories, description, price, countInStock, image, images } = productData;
+            let query = {};
+
+            // Dynamically build the update query based on the fields provided
+            if (name && typeof name === 'string' && name.length > 0) query.name = name;
+            if (Categories && typeof Categories === 'string' && Categories.length > 0) query.category = Categories;
+            if (description && typeof description === 'string' && description.length > 0) query.description = description;
+            if (price && typeof price === 'string' && price.length > 0) query.price = price;
+            if (countInStock) query.countInStock = countInStock;
+
+            // If product ID is not provided, skip the update for that product
+            if (!id) {
+                updatedProducts.push({ message: "Product ID is required", productId: id });
+                continue;
+            }
+
+            const findProduct = await product.findById(id);
+            if (!findProduct) {
+                updatedProducts.push({ message: "Product not found", productId: id });
+                continue;
+            }
+
+            // Handle single image update (if provided)
+            if (findProduct.image && image) {
+                const publicId = findProduct.image.split('upload/')[1]?.replace(/^[^/]+\//, "").split(".")[0];
+                await deleteSingleImageFromCloudinary(publicId);
+                const productImage = await singleUploadOnCloudinary(image);
+                query.image = productImage.url;
+            }
+
+            // Handle multiple images update (if provided)
+            if (findProduct.images && images && images.length > 0) {
+                for (let i = 0; i < findProduct.images.length; i++) {
+                    const publicId = findProduct.images[i].split('/upload/')[1].split('/');
+                    const formattedPublicId = `${publicId[1]}/${publicId[2]}/${publicId[3]}`.split('.')[0];
+                    await deleteSingleImageFromCloudinary(formattedPublicId);
+                }
+                const productImages = await Promise.all(images.map(localFilePath => uploadOnCloudinary(localFilePath)));
+                query.images = productImages.map(img => img.url);
+            }
+
+            // Update the product
+            const updateProduct = await product.findByIdAndUpdate(
+                id,
+                { $set: query },
+                { new: true }
+            );
+
+            // Push the updated product info or failure message
+            if (updateProduct) {
+                updatedProducts.push({ message: "Product updated successfully", product: updateProduct });
+            } else {
+                updatedProducts.push({ message: "Failed to update product", productId: id });
+            }
+        }
+
+        // Return the response after processing all products
+        res.status(200).json({
+            message: "Products processed successfully",
+            updatedProducts
+        });
+    } catch (error) {
+        return res.status(400).json(new ApiResponse(
+            400,
+            { error: "Invalid request" },
+            "Invalid request",
+            'false'
+        ));
+    }
+});
+

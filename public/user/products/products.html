@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Layout</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        /* background-color: #000; */
+        /* color: #FFA500; */
+        /* Orange */
+    }
+
+    header,
+    footer {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .filters {
+        width: 25%;
+        padding: 20px;
+        border-right: 2px solid #FFA500;
+    }
+
+    .product-grid {
+        width: 75%;
+        padding: 20px;
+    }
+
+    .product-grid .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 30px;
+        /* overflow-x: hidden; */
+    }
+
+    /* .product-item {
+        background-color: #222;
+        height: 150px;
+        border: 1px solid #FFA500;
+        
+    }
+
+    */
+    .pagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .pagination button {
+        margin: 0 5px;
+        padding: 5px 10px;
+        background-color: #FFA500;
+        /* Orange background */
+        border: none;
+        cursor: pointer;
+    }
+
+    .pagination button:hover {
+        background-color: #ff8c00;
+        /* Lighter orange on hover */
+    }
+</style>
+
+<body>
+    <nav class="navSection">
+    </nav>
+    <!-- <section class="searchSection1">
+        <input type="search" name="" id="" placeholder="Search for Products" aria-label="Search for Products">
+        <span class="material-symbols-outlined search_bar" id="icon">
+            search
+        </span>
+    </section> -->
+    <div class="container">
+        <aside class="filters">
+            <h2>Filters</h2>
+            <div class="category">
+                <h3>Categories</h3>
+                <ul>
+                    <li>- subcat</li>
+                    <li>- subcat</li>
+                    <li>- subcar</li>
+                </ul>
+            </div>
+            <div class="price">
+                <h3>Price</h3>
+                <label for="min">min:</label>
+                <input type="number" id="min" min="0">
+                <label for="max">max:</label>
+                <input type="number" id="max" min="0">
+            </div>
+            <div class="size">
+                <h3>Size</h3>
+                <select>
+                    <option value="s">S</option>
+                    <option value="m">M</option>
+                    <option value="l">L</option>
+                    <option value="xl">XL</option>
+                    <option value="xxl">XXL</option>
+                </select>
+            </div>
+            <div class="additional-filters">
+                <h3>More Filters</h3>
+                <ul>
+                    <li>Fabric</li>
+                    <li>Pattern</li>
+                    <li>Color</li>
+                    <li>Occasion</li>
+                    <li>FIT</li>
+                    <li>Sleeve</li>
+                    <li>Neck Type</li>
+                    <li>New Arrivals</li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="product-grid">
+            <div class="grid">
+                <!-- Placeholder for product items -->
+                <!-- <div class="product-item"></div> -->
+            </div>
+            <div class="pagination">
+                <p>Page 1 of 319</p>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>Next</button>
+            </div>
+        </main>
+    </div>
+
+    <footer></footer>
+
+    <script type="module" src="script.js"></script>
+    <!-- <script type="module" src="user/home/index.js"></script> -->
+</body>
+
+</html>

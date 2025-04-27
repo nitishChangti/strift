@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background: #f1f3f6;
+        }
+
+        .header {
+            background: #2874f0;
+            padding: 10px 32px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1248px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* 
+        .logo {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+        } */
+
+        .search-container {
+            flex: 1;
+            max-width: 564px;
+            margin: 0 40px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 2px;
+            font-size: 14px;
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #2874f0;
+            cursor: pointer;
+        }
+
+        .account-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .main-container {
+            max-width: 1248px;
+            margin: 16px auto;
+            display: flex;
+            gap: 16px;
+        }
+
+        .cart-section {
+            flex: 1;
+            /* background: white; */
+            border-radius: 2px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+        }
+
+        .price-section {
+            width: 320px;
+            background: white;
+            border-radius: 2px;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+            align-self: flex-start;
+            position: sticky;
+            top: 76px;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #f0f0f0;
+            padding: 0 24px;
+        }
+
+        .tab {
+            padding: 16px 24px;
+            color: #2874f0;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            border-bottom-color: #2874f0;
+        }
+
+        .delivery-address {
+            padding: 16px 24px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            gap: 10px;
+        }
+
+
+        .address-label {
+            color: #878787;
+        }
+
+        .address-text {
+            font-weight: 500;
+        }
+
+        .change-btn {
+            color: #2874f0;
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .cart-item-container {
+            padding: 24px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            /* flex-direction: column; */
+            gap: 24px;
+        }
+
+        .item-image {
+            width: 112px;
+            height: 112px;
+            object-fit: contain;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-title {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .item-size {
+            color: #878787;
+            margin-bottom: 8px;
+        }
+
+        .item-seller {
+            color: #878787;
+            margin-bottom: 16px;
+        }
+
+        .price-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .original-price {
+            color: #878787;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            color: #388e3c;
+        }
+
+        .quantity-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .quantity-btn {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #c2c2c2;
+            background: white;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 28px;
+            border: 1px solid #c2c2c2;
+            text-align: center;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 24px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #2874f0;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .price-details {
+            padding: 16px 24px;
+        }
+
+        .price-title {
+            font-size: 16px;
+            font-weight: 500;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+        }
+
+        .price-row:last-of-type {
+            padding-bottom: 24px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px 0;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .savings-text {
+            color: #388e3c;
+            font-weight: 500;
+            padding: 16px 0;
+        }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 16px;
+            background: #fb641b;
+            color: white;
+            border: none;
+            border-radius: 2px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .secure-text {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #878787;
+            padding: 16px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navSection">
+    </nav>
+
+    <main class="main-container">
+        <div>
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+                <section class="cart-section" style="display: flex; flex-direction: column; gap: 10px;">
+                    <div class="tabs" style="background: white;">
+                        <div class="tab active" id="showuserproductCart">Shopping Cart (2)</div>
+                    </div>
+                    <div class="show-address" style="background: #878787;">
+                        <h1 style="display: none;">Select Delivery Address</h1>
+                    </div>
+                    <div class="delivery-address" style="background: white;">
+                        <div style="display: flex; gap: 10px;">
+                            <span class="address-label">Deliver to:</span>
+                            <span class="address-text">John Smith, 100089</span>
+                            <span></span>
+                            <button class="change-btn">Change</button>
+                        </div>
+                        <div class="address-location">
+                            sadj sajdsad sjdk
+                        </div>
+                    </div>
+                    <div class="cart-item-container" style="background: white;">
+                        <!-- <img src="https://static.readdy.ai/image/526896720336bf24af47e51d55c0ad98/0026a1a0bc88cf24e5704e0eab166f4d.png"
+                        class="item-image" alt="Lenovo Laptop">
+                    <div class="item-details">
+                        <h2 class="item-title">Lenovo V14 Intel Core i5 12th Gen 1235U - (8 GB/512GB SSD)</h2>
+                        <p class="item-size">14 inch, Iron Grey, 1.6 kg</p>
+                        <p class="item-seller">Seller: Lenovo Official Store</p>
+                        <div class="price-group">
+                            <span class="current-price">$799.99</span>
+                            <span class="original-price">$999.99</span>
+                            <span class="discount">20% Off</span>
+                        </div>
+                        <div class="quantity-group">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn">SAVE FOR LATER</button>
+                            <button class="action-btn">REMOVE</button>
+                        </div> -->
+                    </div>
+            </div>
+            </section>
+            <section class="cart-section mt-4" id="containerSaveForLater" style="background: white;">
+                <div class="tabs">
+                    <div class="tab active" id="legOfSavedForLater">Saved For Later (1)</div>
+                </div>
+                <!-- 
+                <div class="cart-item-container Modified">
+                    <img src="https://static.readdy.ai/image/526896720336bf24af47e51d55c0ad98/0026a1a0bc88cf24e5704e0eab166f4d.png"
+                        class="item-image" alt="Lenovo Laptop">
+                    <div class="item-details">
+                        <h2 class="item-title">Lenovo V14 Intel Core i5 12th Gen 1235U - (8 GB/512GB SSD)</h2>
+                        <p class="item-size">14 inch, Iron Grey, 1.6 kg</p>
+                        <p class="item-seller">Out Of Stock</p>
+                        <div class="quantity-group">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" class="quantity-input" value="1" min="1">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-btn">REMOVE</button>
+                        </div>
+                    </div>
+                </div> -->
+            </section>
+        </div>
+        <section class="price-section">
+            <div class="price-details">
+                <h3 class="price-title">PRICE DETAILS</h3>
+                <div class="price-row">
+                    <span>Price (2 items)</span>
+                    <span>$2,999.98</span>
+                </div>
+                <div class="price-row">
+                    <span>Discount</span>
+                    <span>-$600.00</span>
+                </div>
+                <div class="price-row">
+                    <span>Platform Fee</span>
+                    <span>$0.30</span>
+                </div>
+                <div class="price-row">
+                    <span>Delivery Charges</span>
+                    <span class="discount">FREE</span>
+                </div>
+                <div class="total-row">
+                    <span>Total Amount</span>
+                    <span>$2,399.98</span>
+                </div>
+                <p class="savings-text">You will save $600.00 on this order</p>
+                <button class="place-order-btn">PLACE ORDER</button>
+                <p class="secure-text">
+                    🔒 Safe and Secure Payments. Easy returns. 100% Authentic products.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer></footer>
+    <script>
+        $(function () {
+            $(".navSection").load("./home/header.html");
+            $("footer").load("./home/footer.html");
+        });
+
+        const isLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'))
+
+        fetchUserData()
+        getUserCartData()
+        getUserSaveForaLater()
+        async function fetchUserData() {
+
+            let userData = {};
+            try {
+                const response = await fetch('/getuserdataforcart',
+                    {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                    });
+                if (response.ok) {
+                    const data = await response.json();
+                    // console.log(data.data);
+                    userData = data.data;
+                }
+                else {
+                    const errData = await response.json();
+                    console.log(errData);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+            // const latestAddress = userData.address.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))[0];
+            // console.log("Latest Updated Address:", latestAddress);
+            // document.querySelector('.address-text').textContent = `${userData.firstName}, ${latestAddress.pinCode}`
+            // document.querySelector('.address-text ~ span').textContent = ` ${latestAddress.addressType}`
+            // document.querySelector('.address-location').textContent = `${latestAddress.address}, ${latestAddress.locality}`
+            // const changeBtn = document.querySelector('.change-btn');
+
+            // changeBtn.addEventListener('click', (event) => {
+            //     const addressDiv = event.target.closest('.delivery-address');
+            //     const addressDiv1 = addressDiv.querySelector('div');
+            //     console.log(addressDiv1)
+            //     const addressDiv2 = addressDiv.querySelector('.address-location')
+            //     console.log(addressDiv2)
+            //     // console.log(addressDiv.querySelector('.address-text').textContent.split(',')[1].trim(), addressDiv.querySelector('.address-text ~ span').textContent)
+            //     console.log('change address');
+            //     const mainContainer = document.querySelector('.show-address')
+            // mainContainer.style.display = 'block';
+            //     mainContainer.querySelector('h1').style.display = 'flex'
+
+            //     const addressData = userData.address;
+            // mainContainer.innerHTML = ''; // Clear previous content to avoid duplication
+            //     const user = userData.firstName;
+            //     addressData.forEach(item => {
+            //         const addressSection = document.createElement('div');
+            //         addressSection.innerHTML = `
+            //             <div style="padding:10px; border-radius:10px; width:50vh; display:flex; align-items:flex-start">
+            //                 <input type="radio" name="addressSelection" id="" value="SSD" style="margin-top:10px;">
+            //                 <label for="">
+            //                     <span style="font-size:20px;">
+            //                         <h1 style="font-size:20px;">&nbsp; ${item.name}, ${item.pinCode} <span>${item.addressType}</span></h1>
+            //                         <p style="font-size:20px;">&nbsp;${item.address}</p>
+            //                         </span>
+            //                         </label>
+            //                         </div>
+
+            //                         `;
+            //         console.log(item);
+            //         mainContainer.appendChild(addressSection);
+            //         // Select the radio button if it matches the previously used address
+            //         const radioInput = addressSection.querySelector('input');
+            //         if (addressDiv2.textContent.replace(/,.*/, '').trim() === item.address || addressDiv1.querySelector('.address-text ~ span').textContent === item.addressType) {
+            //             console.log('gi')
+            //             radioInput.checked = true;
+            //         }
+            //         // Listen for user selection changes
+            //         radioInput.addEventListener('change', (e) => {
+            //             mainContainer.style.display = 'none'
+            //             addressDiv1.querySelector('.address-text').textContent = `${item.name}, ${item.pinCode} `
+            //             addressDiv1.querySelector('.address-text ~ span').textContent = ` ${item.addressType}`
+            //             console.log(addressDiv.querySelector('.address-location'))
+            //             addressDiv.querySelector('.address-location').textContent = `${item.address}, ${item.locality}`
+            //             console.log(`User manually selected address: ${item.address}, Type: ${item.addressType}`);
+            //         });
+            //     });
+
+            // })
+
+            const latestAddress = userData.address.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))[0];
+            // console.log("Latest Updated Address:", latestAddress);
+            document.querySelector('.address-text').textContent = `${latestAddress.name}, ${latestAddress.pinCode}`;
+            document.querySelector('.address-text ~ span').textContent = ` ${latestAddress.addressType}`;
+            document.querySelector('.address-location').textContent = `${latestAddress.address}, ${latestAddress.locality}`;
+            const changeBtn = document.querySelector('.change-btn');
+
+            let selectedAddress = latestAddress; // Initialize with the latest address
+
+            changeBtn.addEventListener('click', (event) => {
+                const addressDiv = event.target.closest('.delivery-address');
+                const addressDiv1 = addressDiv.querySelector('div');
+                console.log(addressDiv1);
+                const addressDiv2 = addressDiv.querySelector('.address-location');
+                console.log(addressDiv2);
+                console.log('change address');
+                const mainContainer = document.querySelector('.show-address');
+
+                // Ensure the popup is visible
+                mainContainer.style.display = 'block';
+                mainContainer.querySelector('h1').style.display = 'flex';
+
+                const addressData = userData.address;
+                const user = userData.firstName;
+                mainContainer.innerHTML = ''; // Clear previous content
+                addressData.forEach(item => {
+                    const addressSection = document.createElement('div');
+                    addressSection.innerHTML = `
+                    <div style="padding:10px; border-radius:10px; width:50vh; display:flex; align-items:flex-start">
+                    <input type="radio" name="addressSelection" id="" value="SSD" style="margin-top:10px;">
+                    <label for="">
+                    <span style="font-size:20px;">
+                    <h1 style="font-size:20px;">&nbsp; ${item.name}, ${item.pinCode} <span>${item.addressType}</span></h1>
+                    <p style="font-size:20px;">&nbsp;${item.address}</p>
+                    </span>
+                    </label>
+                    </div>
+        `;
+                    console.log(item);
+                    mainContainer.appendChild(addressSection);
+
+                    // Select the radio button if it matches the selected address
+                    const radioInput = addressSection.querySelector('input');
+                    if (selectedAddress && (item.address === selectedAddress.address || item.addressType === selectedAddress.addressType)) {
+                        radioInput.checked = true;
+                    }
+
+                    // Listen for user selection changes
+                    radioInput.addEventListener('change', async (e) => {
+                        e.preventDefault()
+                        mainContainer.style.display = 'none';
+                        addressDiv1.querySelector('.address-text').textContent = `${item.name}, ${item.pinCode}`;
+                        addressDiv1.querySelector('.address-text ~ span').textContent = ` ${item.addressType}`;
+                        addressDiv.querySelector('.address-location').textContent = `${item.address}, ${item.locality}`;
+                        console.log(`User manually selected address: ${item.address}, Type: ${item.addressType}`);
+                        selectedAddress = item; // Update the selected address
+
+                        // Send the selected address to the backend
+                        try {
+                            const response = await fetch('/updatetoaddressforcart', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ address: selectedAddress }),
+                            });
+
+                            if (response.ok) {
+                                console.log('Address updated successfully');
+                                // Reload the page to reflect the updated address
+                                // location.reload();
+                            } else {
+                                console.error('Failed to update address');
+                                // Optionally, display an error message to the user
+                            }
+                        } catch (error) {
+                            console.error('Error updating address:', error);
+                            // Optionally, display an error message to the user
+                        }
+                    });
+                });
+            });
+        }
+
+        async function getUserCartData() {
+            console.log('this is a getCartData function');
+            if (isLoggedIn === true) {
+                try {
+                    console.log('before req')
+                    const response = await fetch('/getusercartdataforproducts', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    })
+                    console.log('after req')
+                    if (response.ok) {
+                        const cartData = await response.json();
+                        console.log('Cart data:', cartData.data);
+                        document.querySelector('#showuserproductCart').textContent = `Shopping Cart (${cartData.data.length})`
+                        createCartItems(cartData.data);
+                    }
+                    else {
+                        const cartErrData = await response.json();
+                        console.log('Error in cart data:', cartErrData);
+                    }
+                } catch (error) {
+                    console.error('Error fetching cart data:', error);
+                }
+            }
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart) {
+                createCartItems(cart);
+            }
+        }
+
+        // Function to create and append a cart item dynamically
+        function createCartItem(itemData) {
+            // console.log('itemData:', itemData);
+            const cartItemContainer = document.querySelector('.cart-item-container');
+            cartItemContainer.style.display = 'flex'
+            cartItemContainer.style.flexDirection = 'column'
+
+            // Create the main container
+            const cartItem = document.createElement('div');
+            cartItem.className = 'cart-item';
+            cartItem.style.background = 'white';
+            cartItem.style.display = 'flex'
+            cartItem.setAttribute('data', itemData.productId)
+            // Create the image element
+            const itemImage = document.createElement('img');
+            itemImage.src = itemData.image;
+            itemImage.className = 'item-image';
+            itemImage.alt = itemData.title;
+            cartItem.appendChild(itemImage);
+
+            // Create the item details container
+            const itemDetails = document.createElement('div');
+            itemDetails.className = 'item-details';
+
+            // Create and append the title
+            const itemTitle = document.createElement('h2');
+            itemTitle.className = 'item-title';
+            itemTitle.textContent = itemData.productName;
+            itemDetails.appendChild(itemTitle);
+
+            // Create and append the size
+            const itemSize = document.createElement('p');
+            itemSize.className = 'item-size';
+            itemSize.textContent = itemData.size;
+            itemDetails.appendChild(itemSize);
+
+            // Create and append the seller
+            // const itemSeller = document.createElement('p');
+            // itemSeller.className = 'item-seller';
+            // itemSeller.textContent = `Seller: ${itemData.seller}`;
+            // itemDetails.appendChild(itemSeller);
+
+            // Create the price group container
+            const priceGroup = document.createElement('div');
+            priceGroup.className = 'price-group';
+
+            // Create and append the current price
+            const currentPrice = document.createElement('span');
+            currentPrice.className = 'current-price';
+            currentPrice.textContent = `$${itemData.price}`;
+            priceGroup.appendChild(currentPrice);
+
+            // Create and append the original price
+            // const originalPrice = document.createElement('span');
+            // originalPrice.className = 'original-price';
+            // originalPrice.textContent = `$${itemData.originalPrice}`;
+            // priceGroup.appendChild(originalPrice);
+
+            // Create and append the discount
+            // const discount = document.createElement('span');
+            // discount.className = 'discount';
+            // discount.textContent = `${itemData.discount}% Off`;
+            // priceGroup.appendChild(discount);
+
+            itemDetails.appendChild(priceGroup);
+
+            // Create the quantity group container
+            const quantityGroup = document.createElement('div');
+            quantityGroup.className = 'quantity-group';
+
+            // Create and append the quantity buttons and input
+            const decreaseBtn = document.createElement('button');
+            decreaseBtn.className = 'quantity-btn';
+            decreaseBtn.textContent = '-';
+            quantityGroup.appendChild(decreaseBtn);
+
+            const quantityInput = document.createElement('input');
+            quantityInput.type = 'number';
+            quantityInput.className = 'quantity-input';
+            quantityInput.value = itemData.quantity;
+            quantityInput.min = '1';
+            quantityGroup.appendChild(quantityInput);
+
+            const increaseBtn = document.createElement('button');
+            increaseBtn.className = 'quantity-btn';
+            increaseBtn.textContent = '+';
+            quantityGroup.appendChild(increaseBtn);
+
+            itemDetails.appendChild(quantityGroup);
+
+            // Create the action buttons container
+            const actionButtons = document.createElement('div');
+            actionButtons.className = 'action-buttons';
+
+            // Create and append the action buttons
+            const saveBtn = document.createElement('button');
+            saveBtn.className = 'action-btn';
+            saveBtn.textContent = 'SAVE FOR LATER';
+            actionButtons.appendChild(saveBtn);
+
+            const removeBtn = document.createElement('button');
+            removeBtn.className = 'action-btn';
+            removeBtn.textContent = 'REMOVE';
+            actionButtons.appendChild(removeBtn);
+
+            itemDetails.appendChild(actionButtons);
+            cartItem.appendChild(itemDetails);
+
+            // Append the cart item to the desired parent element
+            cartItemContainer.appendChild(cartItem); // Change to the desired parent element
+
+            // Add event listeners for quantity buttons
+            decreaseBtn.addEventListener('click', () => {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                    if (isLoggedIn !== true) {
+
+                        // Update the cart in local storage
+                        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                        const productId = cartItem.getAttribute('data');
+
+                        // Find the item in the cart and update its quantity
+                        const updatedCart = cart.map(item => {
+                            if (item.productId === productId) {
+                                return { ...item, quantity: quantityInput.value };
+                            }
+                            return item;
+                        });
+
+                        // Save the updated cart back to local storage
+                        localStorage.setItem('cart', JSON.stringify(updatedCart));
+                    }
+                }
+            });
+
+            increaseBtn.addEventListener('click', () => {
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+                if (isLoggedIn !== true) {
+
+                    // Update the cart in local storage
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const productId = cartItem.getAttribute('data');
+
+                    // Find the item in the cart and update its quantity
+                    const updatedCart = cart.map(item => {
+                        if (item.productId === productId) {
+                            return { ...item, quantity: quantityInput.value };
+                        }
+                        return item;
+                    });
+
+                    // Save the updated cart back to local storage
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                }
+            });
+
+            // Add event listener for remove button
+            removeBtn.addEventListener('click', async () => {
+                if (isLoggedIn === true) {
+                    try {
+                        const response = await fetch(`/remove-from-cart/${itemData.productId}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                        });
+
+                        if (response.ok) {
+                            cartItemContainer.removeChild(cartItem);
+                            console.log('Item removed successfully');
+                        } else {
+                            console.error('Failed to remove item from the database');
+                        }
+                    } catch (error) {
+                        console.error('Error removing item:', error);
+                    }
+                }
+                else {
+                    // Remove the item from the cart in local storage
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const productId = cartItem.getAttribute('data');
+                    const updatedCart = cart.filter(item => item.productId !== productId);
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+                    window.location.reload()
+                }
+            });
+
+            saveBtn.addEventListener('click', async (e) => {
+                console.log('ho', event.target)
+                // Access the clicked button
+                const button = event.target;
+
+                // Traverse up the DOM to find the parent elements
+                const productDetails = button.closest('.item-details');
+
+                console.log(cartItem.getAttribute('data'))
+                const product = {
+                    productId: `${cartItem.getAttribute('data')}`,
+                    productName: `${productDetails.querySelector('h2').textContent}`,
+                    size: `${productDetails.querySelector('.item-size').textContent}`,
+                    price: `${productDetails.querySelector('.current-price').textContent}`,
+                    quantity: `${quantityInput.value}`,
+                    image: `${itemImage.src}`
+                }
+                console.log(product)
+                if (isLoggedIn === true) {
+
+                    try {
+                        const response = await fetch('/saveForLater-product', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(product),
+                        });
+                        if (response.ok) {
+                            const data = await response.json();
+                            console.log('Product saved successfully', data.data);
+                            cartItemContainer.removeChild(cartItem);
+                            if (Array.isArray(data.data)) {
+                                console.log('Item removed successfully');
+                                // Generate saved items for each product in the array
+                                // generateSavedForLaterItems(data.data);
+                                window.location.reload()
+                            }
+                        }
+                        else {
+                            const data = await response.json();
+                            console.error('Failed to save product', data);
+                        }
+                    } catch (error) {
+                        console.error('Error saving product:', error);
+                    }
+
+                } else {
+                    // Handle non-logged-in user
+                    const savedForLater = JSON.parse(localStorage.getItem('savedForLater')) || [];
+
+                    // Check if the product is already in savedForLater
+                    const productExists = savedForLater.some(item => item.productId === product.productId);
+                    if (!productExists) {
+                        savedForLater.push(product);
+                        localStorage.setItem('savedForLater', JSON.stringify(savedForLater));
+                    }
+
+                    // Remove the product from the cart in local storage
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                    const updatedCart = cart.filter(item => item.productId !== product.productId);
+                    localStorage.setItem('cart', JSON.stringify(updatedCart));
+
+                    // Remove the item from the cart UI
+                    cartItemContainer.removeChild(cartItem);
+                    window.location.reload()
+                }
+
+            })
+
+
+        }
+
+        // Function to create multiple cart items from an array of item data
+        function createCartItems(itemsData) {
+            itemsData.forEach(itemData => createCartItem(itemData));
+        }
+
+        //
+        // Function to generate multiple saved items from an array of item data
+        function generateSavedForLaterItems(itemsData) {
+
+            // const savedForLaterContainer = document.querySelector('#containerSaveForLater');
+            // savedForLaterContainer.innerHTML = ''
+            document.querySelector('#legOfSavedForLater').textContent = `Saved For Later (${itemsData.length})`;
+            itemsData.forEach(itemData => createSavedItemElement(itemData));
+        }
+
+
+        // Function to create and append the HTML structure dynamically
+        function createSavedItemElement(product) {
+            // console.log(product)
+            const savedForLaterContainer = document.querySelector('#containerSaveForLater');
+            if (!savedForLaterContainer) {
+                console.error('Save for later container not found in the DOM');
+                return;
+            }
+            // // Clear existing tabs and items
+            // savedForLaterContainer.innerHTML = '';
+
+            // // Create the tabs container
+            // const tabsContainer = document.createElement('div');
+            // tabsContainer.className = 'tabs';
+
+            // // Create the tab element
+            // const tab = document.createElement('div');
+            // tab.className = 'tab active';
+            // tab.textContent = `Saved For Later (${product.length})`;
+
+            // // Append the tab to the tabs container
+            // tabsContainer.appendChild(tab);
+
+            // // Append the tabs container to the saved for later container
+            // savedForLaterContainer.appendChild(tabsContainer);
+
+            console.log(product.quantity)
+            // Create a new element for the saved item
+            const savedItem = document.createElement('div');
+            savedItem.setAttribute('data-id', product.productId)
+            savedItem.className = 'cart-item-container Modified';
+            savedItem.innerHTML = `
+        <img src="${product.image}" class="item-image" alt="${product.productName}">
+        <div class="item-details">
+            <h2 class="item-title">${product.productName}</h2>
+            <p class="item-size">${product.size}</p>
+            <p class="item-price">${product.price}</p>
+            <div class="quantity-group">
+                <button class="quantity-btn">-</button>
+                <input type="number" class="quantity-input" value="${product.quantity}" min="1">
+                <button class="quantity-btn">+</button>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn" id="moveToCart">MOVE TO CART</button>
+                    <button class="action-btn" id="removeFromSaveForLater">REMOVE</button>
+            </div>
+        </div>
+    `;
+            savedForLaterContainer.appendChild(savedItem);
+            // Access the "MOVE TO CART" button and add an event listener
+            const moveToCartButton = savedItem.querySelector('#moveToCart');
+            moveToCartButton.addEventListener('click', async function () {
+                const btn = event.target
+                const cart_item_container = document.querySelector('.cart-item-container')
+                const product = {
+                    "productId": savedItem.getAttribute('data-id'),
+                    "productName": savedItem.querySelector('.item-title').textContent,
+                    "size": savedItem.querySelector('.item-size').textContent,
+                    "price": savedItem.querySelector('.item-price').textContent,
+                    "quantity": savedItem.querySelector('.quantity-input').value,
+                    "image": savedItem.querySelector('.item-image').src
+                }
+                console.log(btn.closest('.cart-item-container'), product)
+                if (isLoggedIn === true) {
+
+                    try {
+                        const response = await fetch('/moveToCart', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(product)
+                        })
+                        if (response.ok) {
+                            const data = await response.json()
+                            console.log('the data is', data)
+                            // Update the cart item container
+                            const cartItemContainer = document.querySelector('.cart-item-container')
+                            cartItemContainer.innerHTML = ``
+                            // Remove the saved item from the saved for later container
+                            savedItem.remove()
+                            // Add the updated cart item to the cart
+                            // createCartItems(data.data)
+                            window.location.reload()
+                        }
+                        else {
+                            const errData = await response.json()
+                            console.log(' the err is', errData)
+                        }
+                    } catch (error) {
+                        console.error(error)
+                    }
+                }
+                else {
+                    // Handle non-logged-in user
+                    const savedForLater = JSON.parse(localStorage.getItem('savedForLater')) || [];
+                    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    // Remove the product from savedForLater
+                    const updatedSavedForLater = savedForLater.filter(item => item.productId !== product.productId);
+                    localStorage.setItem('savedForLater', JSON.stringify(updatedSavedForLater));
+
+                    // Add the product to the cart
+                    cart.push(product);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    // Remove the item from the UI
+                    savedItem.remove();
+                    window.location.reload()
+                }
+            });
+
+            const removeBtn = savedItem.querySelector('#removeFromSaveForLater')
+            removeBtn.addEventListener('click', async function () {
+                const btn = event.target
+                const cart_item_container = document.querySelector('.cart-item-container')
+                const product = {
+                    "productId": savedItem.getAttribute('data-id'),
+                    "productName": savedItem.querySelector('.item-title').textContent,
+                    "size": savedItem.querySelector('.item-size').textContent,
+                    "price": savedItem.querySelector('.item-price').textContent,
+                    "quantity": savedItem.querySelector('.quantity-input').value,
+                    "image": savedItem.querySelector('.item-image').src
+                }
+                console.log(btn.closest('.cart-item-container'), product)
+                if (isLoggedIn === true) {
+
+                    try {
+                        const response = await fetch('/removeFromSaveForLater', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(product)
+                        })
+                        if (response.ok) {
+                            const data = await response.json()
+                            console.log('the data is', data)
+                            // Update the cart item container
+                            // const cartItemContainer = document.querySelector('.cart-item-container')
+                            // cartItemContainer.innerHTML = ``
+                            // Remove the saved item from the saved for later container
+                            savedItem.remove()
+                            // Add the updated cart item to the cart
+                            // createCartItems(data.data)
+                            window.location.reload()
+                        }
+                        else {
+                            const errData = await response.json()
+                            console.log(' the err is', errData)
+                        }
+                    } catch (error) {
+                        console.error(error)
+                    }
+                }
+                else {
+                    // Handle non-logged-in user
+                    const savedForLater = JSON.parse(localStorage.getItem('savedForLater')) || [];
+
+                    // Filter out the product to be removed
+                    const updatedSavedForLater = savedForLater.filter(item => item.productId !== product.productId);
+
+                    // Update local storage with the new savedForLater array
+                    localStorage.setItem('savedForLater', JSON.stringify(updatedSavedForLater));
+
+                    // Remove the item from the UI
+                    savedItem.remove();
+                    window.location.reload()
+                    console.log('successfully removed product from saved for later')
+                }
+            })
+        }
+
+        async function getUserSaveForaLater() {
+            if (isLoggedIn === true) {
+
+                try {
+                    const response = await fetch('/getUserSavedForLater', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log(' data', data.data);
+                        // const saveForLaterContainer = document.querySelector('#containerSaveForLater');
+                        // Clear previous content
+                        // saveForLaterContainer.innerHTML = '';
+                        // document.querySelector('#legOfSavedForLater').textContent = `Saved For Later (${data.data.length})`;
+                        generateSavedForLaterItems(data.data)
+                    }
+                    else {
+                        const errData = await response.json();
+                        console.log('error', errData);
+                    }
+                }
+                catch (err) {
+                    console.log('error', err);
+                }
+            }
+            else {
+                console.log('you are not logged in')
+                // Handle non-logged-in user
+                const savedForLater = JSON.parse(localStorage.getItem('savedForLater')) || [];
+                console.log('You are not logged in. Fetching data from local storage.');
+                generateSavedForLaterItems(savedForLater);
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

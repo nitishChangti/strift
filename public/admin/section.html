@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure JS Routing</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            background: #007bff;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #0056b3;
+        }
+
+        .section {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            background: #f9f9f9;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="/admin/dashboard/categories" data-link>Categories</a>
+        <a href="/admin/dashboard/create-category" data-link>Create Category</a>
+        <a href="/admin/dashboard/products" data-link>Products</a>
+        <a href="/admin/dashboard/create-product" data-link>Create Product</a>
+    </nav>
+
+    <div id="content">
+        <section id="category-list" class="section">📂 Category List</section>
+        <section id="create-category" class="section">✏️ Create Category</section>
+        <section id="product-list" class="section">🛒 Product List</section>
+        <section id="create-product" class="section">➕ Create Product</section>
+        <section id="not-found" class="section">❌ 404 - Page Not Found</section>
+    </div>
+
+    <script>
+        const routes = {
+            "/admin/dashboard/categories": "category-list",
+            "/admin/dashboard/create-category": "create-category",
+            "/admin/dashboard/products": "product-list",
+            "/admin/dashboard/create-product": "create-product"
+        };
+
+        // ✅ Navigate without reloading
+        function navigateTo(url) {
+            history.pushState({}, "", url);
+            route();
+        }
+
+        // ✅ Handle route changes
+        function route() {
+            const path = window.location.pathname;
+            console.clear();
+            console.log(`Navigated to: ${path}`);
+
+            document.querySelectorAll(".section").forEach(section => {
+                section.classList.remove("active");
+            });
+
+            const sectionId = routes[path] || "not-found";
+            document.getElementById(sectionId).classList.add("active");
+        }
+
+        // ✅ Handle browser navigation (Back/Forward)
+        window.addEventListener("popstate", route);
+
+        // ✅ Handle link clicks
+        document.addEventListener("click", (e) => {
+            if (e.target.matches("[data-link]")) {
+                e.preventDefault();
+                navigateTo(e.target.getAttribute("href"));
+            }
+        });
+
+        // ✅ Run router on page load
+        document.addEventListener("DOMContentLoaded", route);
+    </script>
+
+</body>
+
+</html>

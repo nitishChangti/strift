@@ -1,0 +1,383 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.maincontent {
+  display: flex;
+  flex-direction: row;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  width: 14%;
+  background-color: #f1f1f1;
+  padding: 10px;
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .main-item {
+  font-weight: bold;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+}
+
+.sidebar .main-item i {
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.sidebar .sub-menu {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar .sub-menu li {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  margin: 5px 0;
+  padding-left: 38px;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.sidebar .sub-menu li:hover {
+  background-color: #ddd;
+}
+
+.content {
+  width: 80%;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/* Add this CSS to style the selected sidebar item */
+.selected {
+  background-color: #2874f0;
+  /* Highlight color */
+  color: white;
+  /* Change text color */
+  font-weight: bold;
+  /* Optional, for better visibility */
+}
+
+.heading {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+#edit {
+  margin-top: 25px;
+  font-weight: bold;
+  color: rgb(1, 114, 220);
+}
+
+.in {
+  width: 35%;
+  height: 4vh;
+  background-color: #cbcbcb23;
+  color: #929292;
+}
+
+.add {
+  width: 50%;
+  height: 4vh;
+  color: rgb(1, 114, 220);
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.fr {
+  border: 1px solid black;
+  width: 25.1%;
+  height: 7vh;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.pn {
+  border: none;
+  width: 98%;
+  height: 4vh;
+}
+
+.pan {
+  width: 25%;
+  height: 6vh;
+  padding: 5px;
+  margin: 10px;
+}
+
+.check {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.box {
+  margin-top: -30px;
+  margin-left: 10px;
+}
+
+.btn {
+  width: 10%;
+  height: 4vh;
+  background-color: #000000;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 45px;
+}
+
+#terms {
+  color: #00000000;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+table,
+tr {
+  height: 8vh;
+  border: 1px solid rgba(125, 125, 125, 0.572);
+  text-align: end;
+  padding-right: 10px;
+}
+
+/* adderss */
+/* .content-section { */
+/* background-color: #e0e0e0; */
+/* width: 80%; */
+/* height: 50vh; */
+/* } */
+.address-form {
+  display: none;
+}
+
+.adr-show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #e0e0e0; */
+  border-radius: 2px;
+  width: 80%;
+  height: 15vh;
+  padding-left: 10px;
+}
+
+.small-sec {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  gap: 1rem;
+  /* margin-left: 10px; */
+}
+
+.sec-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sec-1,
+span {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.sec-2,
+p {
+  font-size: 12px;
+}
+
+#editPersonalInfo:hover,
+#genderMale:hover,
+#genderFemale:hover,
+#edit:hover,
+#save_Mobile:hover,
+#saveEmail:hover,
+#savePersonalInfo:hover {
+  cursor: pointer;
+}
+
+.popup {
+  position: relative;
+  /* margin-top: 0; */
+  /* left: 650px; */
+  margin-right: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #929292a5;
+  width: 7%;
+}
+
+/* manage address and button */
+/* Heading Styling */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+}
+
+/* Add Address Button */
+.ad {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.ad:hover {
+  background-color: #000000;
+}
+
+.ad:active {
+  background-color: #003d80;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/*address from pop up*/
+.address-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #e6e5e5af;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Full-width fields (spanning both columns) */
+.address-form textarea,
+.address-form button,
+.address-form .radio-group {
+  grid-column: span 2;
+}
+
+/* Input fields */
+.address-form input[type="text"],
+.address-form input[type="tel"],
+.address-form input[type="number"],
+.address-form input[type="text"],
+.address-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Textarea */
+.address-form textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* Radio buttons */
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.radio-group label {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Buttons */
+.address-form .save-btn,
+.address-form .cancel-btn {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 150px;
+}
+
+.address-form .save-btn {
+  background-color: #000000;
+  color: #fff;
+}
+
+.address-form .cancel-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.address-form .save-btn:hover {
+  background-color: #000000;
+}
+
+.address-form .cancel-btn:hover {
+  background-color: #999;
+}
+
+/* Title Styling */
+.address-form title {
+  display: none;
+  /* Hide <title> as it is invalid in form */
+}
+
+/* saved address */
+.addlist {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

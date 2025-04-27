@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="navbar">
+    </header>
+
+    <div class="login_page">
+        <header class="section1">
+            <h1>Login</h1>
+            <p>Get access to your Orders,
+                Wishlist and Recommendations
+            </p>
+            <img src="images/login_page_background_img.png" alt="">
+            <!-- <img src="images/login_page_background_img.png" alt=""> -->
+        </header>
+        <main class="section2">
+            <form id="mobile-number-form" action="/">
+                <h2>Log in for the best experience</h2>
+                <p>Enter your phone number to continue</p>
+                <div>
+                    <input id="phone" type="tel" name="mobileNumber" required placeholder="" pattern="[0-9]{10}">
+                </div>
+                <p>By continuing, you agree to Strift's <a href="">Terms of Use </a>and <a href="">Privacy Policy.</a>
+                </p>
+                <button type="submit" id="request-otp-btn">Request OTP</button>
+            </form>
+
+            <a href="/account?signup=true">New to Strift? Create an account</a>
+        </main>
+        <section class="otp_verify">
+            <div class="otp_section_1">
+                <h1>Please enter the OTP sent to <br>
+                    <span>&nbsp; &nbsp;</span><a href="" class="change"> &nbsp; Change</a>
+                </h1>
+            </div>
+            <form action="/account/login?ret=/" get="post">
+                <span>
+                    <input type="tel" name="OTP_Number_One" id="" required placeholder="" pattern="[0-9]{1}"
+                        maxlength="1">
+                    <input type="tel" name="OTP_Number_Two" id="" required placeholder="" pattern="[0-9]{1}">
+                    <input type="tel" name="OTP_Number_Three" id="" required placeholder="" pattern="[0-9]{1}"
+                        maxlength="1">
+                    <input type="tel" name="OTP_Number_Four" id="" required placeholder="" pattern="[0-9]{1}"
+                        maxlength="1">
+                    <input type="tel" name="OTP_Number_Five" id="" required placeholder="" pattern="[0-9]{1}"
+                        maxlength="1">
+                    <input type="tel" name="OTP_Number_Six" id="" required placeholder="" pattern="[0-9]{1}"
+                        maxlength="1">
+                </span>
+                <input type="submit" value="Verify">
+            </form>
+            <span>
+                <p>Not received your code?
+                    <a href="" id="countdown-timer">Resend Code</a>
+                </p>
+            </span>
+        </section>
+    </div>
+
+    <div class="Verification_code_sent">
+        <span class="material-symbols-outlined">
+            check_circle
+        </span>
+        <h1></h1>
+    </div>
+
+    <div class="register">
+        <div class="section1">
+            <h1>Looks like you're new here!</h1>
+            <p>Sign up with your mobile number to get started
+            </p>
+            <img src="../images/login_page_background_img.png" alt="">
+        </div>
+        <div class="section2">
+            <form action="/">
+                <div>
+                    <input type="tel" id="phone1" name="mobileNumber" required>
+                </div>
+                <p>By continuing, you agree to Strift's <a href="">Terms of Use </a>and <a href="">Privacy
+                        Policy.</a></p>
+                <input type="submit" value="CONTINUE">
+            </form>
+            <button>
+                <a href="/account?ret=/" style="text-decoration: none; color: black; display: block;">
+                    Existing User? Log in
+                </a>
+            </button>
+        </div>
+
+        <div class="section3">
+            <!-- Form for mobile number input -->
+            <form action="" class="form1">
+                <input type="tel" id="mobileNumber" name="mobileNumber" required>
+                <a href="">Change?</a>
+            </form>
+
+            <!-- OTP notification and resend link -->
+            <div class="otp-notification">
+                <h1>OTP sent to Mobile</h1>
+                <a href="" class="anchor" id="countdown-timer">Resend?</a>
+            </div>
+
+            <!-- Form for OTP input and signup -->
+            <form action="" class="form2">
+                <div>
+                    <input type="tel" id="mobileNumberOtp" name="mobileNumberOtp" required>
+                    <label for="mobileNumberOtp">Enter OTP</label>
+                </div>
+                <input type="submit" value="Signup">
+            </form>
+
+            <!-- Button for existing users to log in -->
+            <button id="existing">Existing User? Log in</button>
+            <!-- </div> -->
+
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+        <script src="./index1.js"></script>
+</body>
+
+</html>

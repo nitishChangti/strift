@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --secondary: #10b981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --button-radius: 8px;
+        }
+
+        body {
+            background-color: var(--gray-50);
+            min-height: 100vh;
+            color: var(--gray-900);
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: var(--white);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .space-x-8>*:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .font-pacifico {
+            font-family: 'Pacifico', cursive;
+        }
+
+        .text-primary {
+            color: var(--primary);
+        }
+
+        .hover-text-primary:hover {
+            color: var(--primary);
+        }
+
+        .text-gray-600 {
+            color: var(--gray-600);
+        }
+
+        .w-8 {
+            width: 2rem;
+        }
+
+        .h-8 {
+            height: 2rem;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        .text-xl {
+            font-size: 1.25rem;
+        }
+
+        .main {
+            padding: 3rem 0;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .grid-cols-1 {
+            grid-template-columns: 1fr;
+        }
+
+        .lg-grid-cols-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gap-12 {
+            gap: 3rem;
+        }
+
+        .space-y-4>*:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .h-600 {
+            height: 600px;
+        }
+
+        .rounded-lg {
+            border-radius: var(--button-radius);
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+        .bg-white {
+            background-color: var(--white);
+        }
+
+        .shadow-md {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .h-full {
+            height: 100%;
+        }
+
+        .object-cover {
+            object-fit: cover;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .border-2 {
+            border-width: 2px;
+        }
+
+        .border-gray-400 {
+            border-color: var(--gray-400);
+        }
+
+        .bg-white-opacity {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .fixed {
+            position: fixed;
+        }
+
+        .top-0 {
+            top: 0;
+        }
+
+        .right-0 {
+            right: 0;
+        }
+
+        .w-600 {
+            width: 600px;
+        }
+
+        .h-600 {
+            height: 600px;
+        }
+
+        .shadow-xl {
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .h-24 {
+            height: 6rem;
+        }
+
+        .rounded-md {
+            border-radius: 4px;
+        }
+
+        .bg-gray-100 {
+            background-color: var(--gray-100);
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .text-gray-900 {
+            color: var(--gray-900);
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .flex-space-x-2>*:not(:last-child) {
+            margin-right: 0.5rem;
+        }
+
+        .w-8 {
+            width: 2rem;
+        }
+
+        .h-8 {
+            height: 2rem;
+        }
+
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .bg-black {
+            background-color: #000000;
+        }
+
+        .border-gray-300 {
+            border-color: var(--gray-300);
+        }
+
+        .focus-outline-none:focus {
+            outline: none;
+        }
+
+        .focus-ring-2:focus {
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .focus-ring-offset-2:focus {
+            box-shadow: 0 0 0 2px var(--white), 0 0 0 4px var(--primary);
+        }
+
+        .focus-ring-primary:focus {
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .flex-space-x-3>*:not(:last-child) {
+            margin-right: 0.75rem;
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .border-2 {
+            border-width: 2px;
+        }
+
+        .text-gray-700 {
+            color: var(--gray-700);
+        }
+
+        .hover-border-primary:hover {
+            border-color: var(--primary);
+        }
+
+        .active {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+
+        .bg-primary {
+            background-color: var(--primary);
+        }
+
+        .text-white {
+            color: var(--white);
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .px-6 {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        .rounded-button {
+            border-radius: var(--button-radius);
+        }
+
+        .hover-bg-primary:hover {
+            background-color: rgba(59, 130, 246, 0.9);
+        }
+
+        .transition-colors {
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        .whitespace-nowrap {
+            white-space: nowrap;
+        }
+
+        .border-t {
+            border-top-width: 1px;
+        }
+
+        .border-gray-200 {
+            border-color: var(--gray-200);
+        }
+
+        .pt-6 {
+            padding-top: 1.5rem;
+        }
+
+        .text-gray-600 {
+            color: var(--gray-600);
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .border-gray-300 {
+            border-color: var(--gray-300);
+        }
+
+        .focus-ring-primary:focus {
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .focus-border-primary:focus {
+            border-color: var(--primary);
+        }
+
+        .bg-white {
+            background-color: var(--white);
+        }
+
+        .text-gray-900 {
+            color: var(--gray-900);
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .flex-items-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .text-gray-500 {
+            color: var(--gray-500);
+        }
+
+        .mr-2 {
+            margin-right: 0.5rem;
+        }
+
+        .text-yellow-400 {
+            color: #fbbf24;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .border-b {
+            border-bottom-width: 1px;
+        }
+
+        .pb-4 {
+            padding-bottom: 1rem;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .text-gray-500 {
+            color: var(--gray-500);
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .space-y-4>*:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        .mt-16 {
+            margin-top: 4rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .text-black {
+            color: #000000;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .md-grid-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .group:hover .group-hover-scale-105 {
+            transform: scale(1.05);
+        }
+
+        .transition-transform {
+            transition: transform 0.3s;
+        }
+
+        .aspect-w-1 {
+            width: 100%;
+            padding-top: 100%;
+            position: relative;
+        }
+
+        .aspect-h-1 {
+            height: 0;
+        }
+
+        .footer {
+            background-color: var(--gray-100);
+            margin-top: 6rem;
+        }
+
+        .footer-container {
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .md-grid-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .tracking-wider {
+            letter-spacing: 0.05em;
+        }
+
+        .mt-4 {
+            margin-top: 1rem;
+        }
+
+        .space-y-4>*:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        .text-base {
+            font-size: 1rem;
+        }
+
+        .text-gray-400 {
+            color: var(--gray-400);
+        }
+
+        .hover-text-gray-100:hover {
+            color: var(--gray-100);
+        }
+
+        .mt-12 {
+            margin-top: 3rem;
+        }
+
+        .border-t {
+            border-top-width: 1px;
+        }
+
+        .pt-8 {
+            padding-top: 2rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        #zoomLens {
+            width: 100px;
+            height: 100px;
+            cursor: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navSection">
+    </nav>
+    <!-- <nav>
+        <div class="container">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-pacifico text-primary">logo</span>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover-text-primary">Home</a>
+                    <a href="#" class="text-gray-600 hover-text-primary">Shop</a>
+                    <a href="#" class="text-gray-600 hover-text-primary">About</a>
+                    <a href="#" class="text-gray-600 hover-text-primary">Contact</a>
+                    <div class="w-8 h-8 flex-center cursor-pointer">
+                        <i class="ri-shopping-cart-line text-xl text-gray-600"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+    <main class="main container">
+        <div class="grid lg-grid-cols-2 gap-12">
+            <div class="space-y-4 relative">
+                <!-- <div class="h-600 rounded-lg overflow-hidden bg-white shadow-md relative" id="imageContainer">
+                    <img src="https://public.readdy.ai/ai/img_res/5cc6df0650656f2ba812b66fe967b70a.jpg"
+                        alt="Product Image" class="w-full h-full object-cover" id="mainImage">
+                    <div id="zoomLens" class="hidden absolute border-2 border-gray-400 bg-white-opacity"></div>
+                </div> -->
+                <!-- <div id="zoomResult"
+                    class="hidden fixed top-0 right-0 w-600 h-600 bg-white shadow-xl rounded-lg overflow-hidden">
+                </div> -->
+                <!-- <div class="grid grid-cols-4 gap-4">
+                    <div class="h-24 rounded-md overflow-hidden bg-gray-100 cursor-pointer thumbnail"
+                        data-image="https://readdy.ai/api/search-image?query=wireless headphones detail shot focusing on ear cushions, pure white background, product photography, commercial quality&width=200&height=200&seq=2&orientation=squarish">
+                        <img src="https://readdy.ai/api/search-image?query=wireless headphones detail shot focusing on ear cushions, pure white background, product photography, commercial quality&width=200&height=200&seq=2&orientation=squarish"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-24 rounded-md overflow-hidden bg-gray-100 cursor-pointer thumbnail"
+                        data-image="https://readdy.ai/api/search-image?query=wireless headphones side view showing controls and buttons, pure white background, product photography, commercial quality&width=200&height=200&seq=3&orientation=squarish">
+                        <img src="https://readdy.ai/api/search-image?query=wireless headphones side view showing controls and buttons, pure white background, product photography, commercial quality&width=200&height=200&seq=3&orientation=squarish"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-24 rounded-md overflow-hidden bg-gray-100 cursor-pointer thumbnail"
+                        data-image="https://readdy.ai/api/search-image?query=wireless headphones folded compact view, pure white background, product photography, commercial quality&width=200&height=200&seq=4&orientation=squarish">
+                        <img src="https://readdy.ai/api/search-image?query=wireless headphones folded compact view, pure white background, product photography, commercial quality&width=200&height=200&seq=4&orientation=squarish"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-24 rounded-md overflow-hidden bg-gray-100 cursor-pointer thumbnail"
+                        data-image="https://readdy.ai/api/search-image?query=wireless headphones showing charging case and accessories, pure white background, product photography, commercial quality&width=200&height=200&seq=5&orientation=squarish">
+                        <img src="https://readdy.ai/api/search-image?query=wireless headphones showing charging case and accessories, pure white background, product photography, commercial quality&width=200&height=200&seq=5&orientation=squarish"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div> -->
+                <!-- <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        const container = document.getElementById('imageContainer');
+                        const mainImage = document.getElementById('mainImage');
+                        const lens = document.getElementById('zoomLens');
+                        const result = document.getElementById('zoomResult');
+                        container.addEventListener('mouseenter', function (e) {
+                            lens.classList.remove('hidden');
+                            result.classList.remove('hidden');
+                        });
+                        container.addEventListener('mouseleave', function (e) {
+                            lens.classList.add('hidden');
+                            result.classList.add('hidden');
+                        });
+                        container.addEventListener('mousemove', function (e) {
+                            const rect = container.getBoundingClientRect();
+                            let x = e.clientX - rect.left;
+                            let y = e.clientY - rect.top;
+                            let lensWidth = lens.offsetWidth / 2;
+                            let lensHeight = lens.offsetHeight / 2;
+                            x = x - lensWidth;
+                            y = y - lensHeight;
+                            if (x > container.offsetWidth - lens.offsetWidth) x = container.offsetWidth - lens.offsetWidth;
+                            if (x < 0) x = 0;
+                            if (y > container.offsetHeight - lens.offsetHeight) y = container.offsetHeight - lens.offsetHeight;
+                            if (y < 0) y = 0;
+                            lens.style.left = x + 'px';
+                            lens.style.top = y + 'px';
+                            const cx = result.offsetWidth / lens.offsetWidth;
+                            const cy = result.offsetHeight / lens.offsetHeight;
+                            result.style.backgroundImage = `url('${mainImage.src}')`;
+                            result.style.backgroundSize = (container.offsetWidth * cx) + 'px ' + (container.offsetHeight * cy) + 'px';
+                            result.style.backgroundPosition = `-${x * cx}px -${y * cy}px`;
+                        });
+                    });
+                </script> -->
+            </div>
+            <div class="space-y-8">
+                <!-- <div class="flex items-center justify-between">
+                    <h1 class="text-3xl font-bold text-gray-900">Premium Wireless Headphones</h1>
+                    <button
+                        class="w-18 h-12 flex-center border border-gray-300 rounded-button hover-bg-gray-100 opacity-0">
+                        <i class="ri-heart-line text-gray-600"></i>
+                    </button>
+                </div> -->
+                <div class="mt-4 flex-items-center" id="priceSection">
+                    <span class="text-2xl font-bold text-primary">$299.99</span>
+                    <span class="ml-2 text-sm text-gray-500 line-through">$399.99</span>
+                </div>
+                <div class="space-y-4" id="colorSection">
+                    <!-- <div>
+                        <h3 class="text-sm font-medium text-gray-900">Color</h3>
+                        <div class="mt-2 flex-space-x-2">
+                            <button
+                                class="w-8 h-8 rounded-full bg-black border-2 border-gray-300 focus-outline-none focus-ring-2 focus-ring-offset-2 focus-ring-primary"></button>
+                            <button
+                                class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 focus-outline-none focus-ring-2 focus-ring-offset-2 focus-ring-primary"></button>
+                            <button
+                                class="w-8 h-8 rounded-full bg-blue-500 border-2 border-gray-300 focus-outline-none focus-ring-2 focus-ring-offset-2 focus-ring-primary"></button>
+                        </div>
+                    </div> -->
+                    <div id="sizeSection">
+                        <!-- <h3 class="text-sm font-medium text-gray-900">Size</h3>
+                        <div class="mt-2">
+                            <div class="flex-space-x-3">
+                                <button
+                                    class="size-btn px-6 py-2 border-2 border-gray-300 rounded-button text-gray-700 hover-border-primary focus-outline-none focus-border-primary focus-ring-2 focus-ring-primary focus-ring-offset-2 active"
+                                    data-size="S">
+                                    S
+                                </button>
+                                <button
+                                    class="size-btn px-6 py-2 border-2 border-gray-300 rounded-button text-gray-700 hover-border-primary focus-outline-none focus-border-primary focus-ring-2 focus-ring-primary focus-ring-offset-2"
+                                    data-size="M">
+                                    M
+                                </button>
+                                <button
+                                    class="size-btn px-6 py-2 border-2 border-gray-300 rounded-button text-gray-700 hover-border-primary focus-outline-none focus-border-primary focus-ring-2 focus-ring-primary focus-ring-offset-2"
+                                    data-size="L">
+                                    L
+                                </button>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="flex space-x-4 gap-4">
+                        <button
+                            class="flex-1 bg-primary text-white py-3 px-6 rounded-button hover-bg-primary transition-colors whitespace-nowrap">
+                            Buy Now
+                        </button>
+                        <button id="AddToCart"
+                            class="flex-1 border border-primary text-primary py-3 px-6 rounded-button hover-bg-primary-5 transition-colors whitespace-nowrap">
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="text-sm text-gray-600">
+                            Delivery to:
+                        </div>
+                        <div class="mt-2">
+                            <input type="text" placeholder="Enter delivery address"
+                                class="w-full border-gray-300 rounded-button focus-ring-primary focus-border-primary bg-white text-gray-900">
+                        </div>
+                        <div class="mt-4 flex-items-center text-sm text-gray-500">
+                            <i class="ri-truck-line mr-2"></i>
+                            Free delivery on orders over RS.500
+                        </div>
+                        <div class="mt-2 flex-items-center text-sm text-gray-500">
+                            <i class="ri-refresh-line mr-2"></i>
+                            7-day return policy
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-200 pt-6">
+                    <!-- <button class="w-full text-left border-none bg-white" onclick="toggleSection('details')"> -->
+                    <div class="flex items-center justify-between" onclick="toggleSection('details')">
+                        <h3 class="text-lg font-medium text-gray-900">Product Details</h3>
+                        <i class="ri-arrow-down-s-line text-gray-500"></i>
+                    </div>
+                    <!-- </button> -->
+                    <div id="details" class="mt-4 prose prose-sm text-gray-500 hidden">
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="border rounded-lg p-6">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <!-- <div class="flex-items-center space-x-4">
+                                        <span class="text-gray-600">Driver Size</span>
+                                        <span class="font-medium">40mm</span>
+                                    </div> -->
+                                    <!-- <div class="flex-items-center space-x-4">
+                                        <span class="text-gray-600">Frequency Response</span>
+                                        <span class="font-medium">20Hz-20kHz</span>
+                                    </div> -->
+                                    <!-- <div class="flex-items-center space-x-4">
+                                        <span class="text-gray-600">Impedance</span>
+                                        <span class="font-medium">32 Ohm</span>
+                                    </div> -->
+                                    <!-- <div class="flex-items-center space-x-4">
+                                        <span class="text-gray-600">Battery Life</span>
+                                        <span class="font-medium">Up to 30 hours</span>
+                                    </div> -->
+                                    <!-- <div class="flex-items-center space-x-4">
+                                        <span class="text-gray-600">Charging Time</span>
+                                        <span class="font-medium">2 hours</span>
+                                    </div> -->
+                                    <!-- <div class="flex-items-center space-x-4">
+                                        <span class="text-gray-600">Bluetooth Version</span>
+                                        <span class="font-medium">5.0</span>
+                                    </div> -->
+                                    <!-- <div class="flex-items-center space-x-4">
+                                        <span class="text-gray-600">Water Resistance</span>
+                                        <span class="font-medium">IPX4</span>
+                                    </div> -->
+                                    <!-- <div class="flex-items-center space-x-4">
+                                        <span class="text-gray-600">Weight</span>
+                                        <span class="font-medium">250g</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- <button class="w-full text-left" onclick="toggleSection('reviews')"> -->
+                    <div class="flex items-center justify-between" onclick="toggleSection('reviews')">
+                        <h3 class="text-lg font-medium text-gray-900">Customer Reviews</h3>
+                        <i class="ri-arrow-down-s-line text-gray-500"></i>
+                    </div>
+                    <!-- </button> -->
+                    <div id="reviews" class="mt-4 hidden">
+                        <div class="flex-items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-half-fill"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-500">4.5 out of 5</span>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="border-b border-gray-200 pb-4">
+                                <div class="flex-items-center mb-2">
+                                    <span class="font-medium text-gray-900">Sarah Mitchell</span>
+                                    <span class="mx-2 text-gray-500">•</span>
+                                    <span class="text-sm text-gray-500">2 days ago</span>
+                                </div>
+                                <div class="flex text-yellow-400 mb-2">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <p class="text-gray-600">Amazing sound quality and very comfortable for long listening
+                                    sessions. The noise cancellation is impressive!</p>
+                            </div>
+                            <div class="border-b border-gray-200 pb-4">
+                                <div class="flex-items-center mb-2">
+                                    <span class="font-medium text-gray-900">Michael Thompson</span>
+                                    <span class="mx-2 text-gray-500">•</span>
+                                    <span class="text-sm text-gray-500">1 week ago</span>
+                                </div>
+                                <div class="flex text-yellow-400 mb-2">
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-fill"></i>
+                                    <i class="ri-star-line"></i>
+                                </div>
+                                <p class="text-gray-600">Great battery life and build quality. Could use a bit more bass
+                                    but overall very satisfied.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold text-black mb-8">Similar Products</h2>
+            <div class="grid md-grid-cols-4 gap-6">
+                <div class="group">
+                    <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 shadow-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/fc76866e36a88bf667bbf55b2a95a7e2.jpg"
+                            class="w-full h-full object-cover group-hover-scale-105 transition-transform">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-sm font-medium text-gray-900">Wireless Earbuds Pro</h3>
+                        <p class="mt-1 text-sm text-gray-400">$159.99</p>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 shadow-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/29e7bd9c7ee86ee9a3b7f6854f8b1654.jpg"
+                            class="w-full h-full object-cover group-hover-scale-105 transition-transform">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-sm font-medium text-gray-900">Gaming Headset Elite</h3>
+                        <p class="mt-1 text-sm text-gray-500">$199.99</p>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 shadow-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/bf23d27e0df6e1b447f0977c70284768.jpg"
+                            class="w-full h-full object-cover group-hover-scale-105 transition-transform">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-sm font-medium text-gray-900">Sports Wireless Earphones</h3>
+                        <p class="mt-1 text-sm text-gray-500">$129.99</p>
+                    </div>
+                </div>
+                <div class="group">
+                    <div class="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-gray-100 shadow-lg">
+                        <img src="https://public.readdy.ai/ai/img_res/f7a83c2f3766d48864f5fd13c2723943.jpg"
+                            class="w-full h-full object-cover group-hover-scale-105 transition-transform">
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-sm font-medium text-gray-900">Studio Pro Headphones</h3>
+                        <p class="mt-1 text-sm text-gray-500">$349.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- <footer class="footer"> -->
+        <!-- <div class="container footer-container">
+            <div class="footer-grid md-grid-cols-4">
+                <div>
+                    <span class="text-2xl font-pacifico text-primary">logo</span>
+                    <p class="mt-4 text-sm text-gray-600">Premium audio solutions for every lifestyle.</p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider">Products</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Headphones</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Earbuds</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Speakers</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Accessories</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider">Support</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Shipping</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Returns</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Warranty</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider">Company</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">About</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Press</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-base text-gray-400 hover-text-gray-100">Careers</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-200 pt-8">
+                <p class="text-base text-gray-400 text-center">&copy; 2025 All rights reserved.</p>
+            </div>
+        </div> -->
+    </footer>
+    <script>
+        $(function () {
+            $(".navSection").load("/header");
+            $("footer").load("/footer");
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function () {
+                    const imageUrl = this.getAttribute('data-image');
+                    mainImage.src = imageUrl;
+                    thumbnails.forEach(t => t.classList.remove('ring-2', 'ring-primary'));
+                    this.classList.add('ring-2', 'ring-primary');
+                });
+            });
+        });
+
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            section.classList.toggle('hidden');
+        }
+
+
+        // Get product ID from URL path
+        const pathSegments = window.location.pathname.split('/');
+        const productId = pathSegments[pathSegments.length - 1];
+        console.log('Product ID:', productId);
+        // getProductData(productId);
+
+        // Check if user is logged in before fetching wishlist
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        if (isLoggedIn) {
+            fetchWishlist();
+            console.log('User is logged in');
+        }
+        else {
+            console.log('User is not logged in');
+            getProductData(productId);
+        }
+
+        async function fetchWishlist() {
+            //   ...existing code for fetching wishlist...
+            let userWishlistedProducts = [];
+            try {
+                const response = await fetch('/getuserproductWishlist', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    userWishlistedProducts = data.data.wishlistTagIds;
+                    console.log('User wishlisted products:', userWishlistedProducts, data);
+                }
+                else {
+                    const error = await response.json();
+                    console.error('Error:', error);
+                }
+            }
+            catch (error) {
+                console.error('Failed to fetch user wishlisted products', error);
+            }
+            getProductData(productId, userWishlistedProducts);
+        }
+
+        // get product details
+        async function getProductData(productId, userWishlistedProducts = []) {
+            let data;
+            let productDataForCart = {};
+            try {
+                const response = await fetch('/productdetails',
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ productId })
+                    });
+                if (response.ok) {
+                    const productData = await response.json();
+                    data = productData.data.products;
+                    console.log('Product data:', productData.data.products);
+                }
+                else {
+                    const errData = await response.json();
+                    console.error('Failed to fetch product data.', errData);
+                }
+            } catch (error) {
+                console.error("Error parsing product data:", error);
+            }
+
+            const mainImageContainer = document.createElement('div');
+            mainImageContainer.id = 'imageContainer';
+            mainImageContainer.classList.add('h-600', 'rounded-lg', 'overflow-hidden', 'bg-white', 'shadow-md', 'relative');
+
+            const mainImage = document.createElement('img');
+            mainImage.id = 'mainImage';
+            mainImage.classList.add('w-full', 'h-full', 'object-cover');
+            mainImage.alt = 'Product Image';
+            mainImage.classList.add('w-full', 'h-full', 'object-cover');
+            mainImage.src = data.image;
+            console.log(mainImage.src)
+            const zoomLens = document.createElement('div');
+            zoomLens.id = 'zoomLens';
+            zoomLens.classList.add('hidden', 'absolute', 'border-2', 'border-gray-400', 'bg-white-opacity');
+
+            mainImageContainer.appendChild(mainImage);
+            mainImageContainer.appendChild(zoomLens);
+
+            const spaceY4Relative = document.querySelector('.space-y-4.relative');
+            spaceY4Relative.insertBefore(mainImageContainer, spaceY4Relative.firstChild);
+
+            const zoomResult = document.createElement('div');
+            zoomResult.id = 'zoomResult';
+            zoomResult.classList.add('hidden', 'fixed', 'top-0', 'right-0', 'w-600', 'h-600', 'bg-white', 'shadow-xl', 'rounded-lg', 'overflow-hidden');
+            spaceY4Relative.insertBefore(zoomResult, spaceY4Relative.children[1]);
+
+            const newDiv = document.createElement('div');
+            newDiv.classList.add('grid', 'grid-cols-4', 'gap-4');
+            console.log(data.images);
+            data.images.forEach(imageUrl => {
+                const innerDiv = document.createElement('div');
+                innerDiv.classList.add('h-24', 'rounded-md', 'overflow-hidden', 'bg-gray-100', 'cursor-pointer', 'thumbnail');
+                innerDiv.setAttribute('data-image', imageUrl);
+
+                const img = document.createElement('img');
+                img.classList.add('w-full', 'h-full', 'object-cover');
+                img.src = imageUrl;
+
+                innerDiv.appendChild(img);
+                newDiv.appendChild(innerDiv);
+            });
+
+            spaceY4Relative.appendChild(newDiv);
+
+            //
+            const container = document.getElementById('imageContainer');
+            // const mainImage = document.getElementById('mainImage');
+            const lens = document.getElementById('zoomLens');
+            const result = document.getElementById('zoomResult');
+            container.addEventListener('mouseenter', function (e) {
+                lens.classList.remove('hidden');
+                result.classList.remove('hidden');
+            });
+            container.addEventListener('mouseleave', function (e) {
+                lens.classList.add('hidden');
+                result.classList.add('hidden');
+            });
+            container.addEventListener('mousemove', function (e) {
+                const rect = container.getBoundingClientRect();
+                let x = e.clientX - rect.left;
+                let y = e.clientY - rect.top;
+                let lensWidth = lens.offsetWidth / 2;
+                let lensHeight = lens.offsetHeight / 2;
+                x = x - lensWidth;
+                y = y - lensHeight;
+                if (x > container.offsetWidth - lens.offsetWidth) x = container.offsetWidth - lens.offsetWidth;
+                if (x < 0) x = 0;
+                if (y > container.offsetHeight - lens.offsetHeight) y = container.offsetHeight - lens.offsetHeight;
+                if (y < 0) y = 0;
+                lens.style.left = x + 'px';
+                lens.style.top = y + 'px';
+                const cx = result.offsetWidth / lens.offsetWidth;
+                const cy = result.offsetHeight / lens.offsetHeight;
+                console.log(mainImage.src)
+                result.style.backgroundImage = `url(${mainImage.src})`;
+                result.style.backgroundSize = (container.offsetWidth * cx) + 'px ' + (container.offsetHeight * cy) + 'px';
+                result.style.backgroundPosition = `-${x * cx} px - ${y * cy} px`;
+            });
+
+            const productNameAndWishlistSection = document.createElement('div');
+            productNameAndWishlistSection.classList.add('flex', 'items-center', 'justify-between');
+
+            const productName = document.createElement('h1');
+            productName.classList.add('text-3xl', 'font-bold', 'text-gray-900');
+            productName.textContent = data.name;
+            productDataForCart.Name = data.name;// storing product name in cart object
+            const wishlistBtn = document.createElement('button');
+            wishlistBtn.setAttribute('data-product-tag-id', data.TagId);
+            productDataForCart.TagId = data.TagId
+            wishlistBtn.classList.add('w-18', 'h-12', 'flex-center', 'rounded-button', 'hover-bg-gray-100', 'opacity-0');
+            wishlistBtn.style.position = 'relative';
+            // wishlistBtn.style.top = '10px';
+            wishlistBtn.style.right = '10px';
+            wishlistBtn.style.background = 'none';
+            wishlistBtn.style.border = 'none';
+            wishlistBtn.style.fontSize = '30px';
+
+            const wishlistIcon = document.createElement('i');
+            wishlistIcon.classList.add('ri-heart-line', 'text-gray-600');
+
+            wishlistBtn.appendChild(wishlistIcon);
+            productNameAndWishlistSection.appendChild(productName);
+            productNameAndWishlistSection.appendChild(wishlistBtn);
+
+            const spaceY8 = document.querySelector('.space-y-8');
+            spaceY8.insertBefore(productNameAndWishlistSection, spaceY8.firstChild);
+
+            //
+            wishlistBtn.addEventListener('click', async function () {
+                if (!isLoggedIn) {
+                    alert('Please login to add product to wishlist');
+                    return;
+                }
+                const icon = this.querySelector('i');
+                icon.classList.toggle('ri-heart-line');
+                icon.classList.toggle('ri-heart-fill');
+                icon.classList.toggle('text-primary');
+                const productTagId = this.getAttribute('data-product-tag-id');
+                console.log('Product Tag ID:', productTagId);
+                try {
+                    const response = await fetch(`/productWishlist`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ productTagId })
+                    });
+                    if (response.ok) {
+                        const resData = await response.json();
+                        console.log(`${resData.message}`, resData);
+                    } else {
+                        const errData = await response.json();
+                        throw new Error('Failed to add product to wishlist', errData);
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+            });
+            const priceSec = document.getElementById('priceSection');
+            const priceSection = document.querySelector('#priceSection .text-2xl.font-bold.text-primary');
+
+            const colorSection = document.createElement('div');
+            const colorTitle = document.createElement('h3');
+            colorTitle.classList.add('text-sm', 'font-medium', 'text-gray-900');
+            colorTitle.textContent = 'Color';
+
+            const colorOptions = document.createElement('div');
+            colorOptions.classList.add('mt-2', 'flex-space-x-2');
+            console.log(data.variants.color);
+            const colors = data.variants.color
+            colors.forEach(color => {
+                console.log(color.name);
+                const colorButton = document.createElement('button');
+                colorButton.classList.add('w-8', 'h-8', 'rounded-full', 'bg-' + color.name.toLowerCase(), 'border-2', 'border-gray-300', 'focus-outline-none', 'focus-ring-2', 'focus-ring-offset-2', 'focus-ring-primary');
+                priceSection.textContent = `${color.price}`;
+                colorOptions.appendChild(colorButton);
+
+                colorButton.addEventListener('click', function () {
+                    productDataForCart.color = color.name; // storing product color in cart object
+                    productDataForCart.price = color.price; // storing product price in cart object
+                    console.log('Selected Color:', this);
+                    this.style.border = '2px solid var(--primary)';
+                    // ✅ Update the Color in Product Details Section
+                    // changeColorValueInProductDetails(color.name);
+                });
+            });
+
+            colorSection.appendChild(colorTitle);
+            colorSection.appendChild(colorOptions);
+            const colorContainer = document.querySelector('#colorSection');
+            colorContainer.insertBefore(colorSection, colorContainer.children[0]);
+
+            const sizeSection = document.querySelector('#sizeSection');
+            const sizeTitle = document.createElement('h3');
+            sizeTitle.classList.add('text-sm', 'font-medium', 'text-gray-900');
+            sizeTitle.textContent = 'Size';
+            const sizeOptionsContiner = document.createElement('div');
+            sizeOptionsContiner.classList.add('mt-2');
+            const sizeOptions = document.createElement('div');
+            sizeOptions.classList.add('flex-space-x-3');
+            console.log(data.variants.size);
+            const sizes = data.variants.size;
+            let sizeBtn
+            sizes.forEach(size => {
+                sizeBtn = document.createElement('button');
+                sizeBtn.classList.add('size-btn', 'px-6', 'py-2', 'border-2', 'border-gray-300', 'rounded-button', 'text-gray-700', 'hover-border-primary', 'focus-outline-none', 'focus-border-primary', 'focus-ring-2', 'focus-ring-primary', 'focus-ring-offset-2');
+                sizeBtn.setAttribute('data-size', size);
+                sizeBtn.textContent = size;
+                sizeOptions.appendChild(sizeBtn);
+                // ✅ Add onclick event
+                sizeBtn.addEventListener('click', function () {
+                    console.log('Selected Size:', this);
+                    productDataForCart.size = size; // storing product size in cart object
+                    // this.style.border = '2px solid var(--primary)';
+                    // ✅ Update the Size in Product Details Section
+                    changeSizeValueInProductDetails(size);
+
+                });
+            })
+            sizeOptionsContiner.appendChild(sizeOptions);
+            sizeSection.appendChild(sizeTitle);
+            sizeSection.appendChild(sizeOptionsContiner);
+
+            const detailsSection = document.querySelector('#details');
+            const detailsData = data.productDetails;
+            console.log(detailsData);
+            const detailsContainer = document.createElement('div');
+            detailsContainer.classList.add('grid', 'grid-cols-1', 'gap-6');
+
+            const detailsCard = document.createElement('div');
+            detailsCard.classList.add('border', 'rounded-lg', 'p-6');
+
+            const detailsGrid = document.createElement('div');
+            detailsGrid.classList.add('grid', 'grid-cols-2', 'gap-4');
+
+
+            const table = document.createElement('table');
+            table.classList.add('w-full', 'text-left', 'border-collapse');
+
+            Object.entries(detailsData).forEach(([label, value]) => {
+                const row = document.createElement('tr');
+
+                const detailLabel = document.createElement('td');
+                detailLabel.classList.add('text-gray-600', 'py-2', 'pr-4', 'border-b', 'border-gray-200');
+                detailLabel.textContent = label;
+
+                const detailValue = document.createElement('td');
+                detailValue.classList.add('font-medium', 'py-2', 'border-b', 'border-gray-200');
+                detailValue.textContent = value;
+                if (value == 'S' || value == 'M' || value == 'L' || value == 'XL' || value == 'XXL') {
+                    function changeSizeValueInProductDetails(size) {
+                        console.log('changed')
+                        detailValue.textContent = size
+                    }
+                }
+                row.appendChild(detailLabel);
+                row.appendChild(detailValue);
+                table.appendChild(row);
+            });
+
+            detailsGrid.appendChild(table);
+
+            detailsCard.appendChild(detailsGrid);
+            detailsContainer.appendChild(detailsCard);
+            detailsSection.appendChild(detailsContainer);
+
+
+            // Check if the product is in the user's wishlist
+            const isWishlisted = userWishlistedProducts.includes(data.TagId);
+            if (isWishlisted) {
+                wishlistIcon.classList.remove('ri-heart-line');
+                wishlistIcon.classList.add('ri-heart-fill', 'text-primary');
+            } else {
+                wishlistIcon.classList.remove('ri-heart-fill', 'text-primary');
+                wishlistIcon.classList.add('ri-heart-line');
+            }
+            const cartToAdd = document.querySelector('#AddToCart')
+            cartToAdd.addEventListener('click', async () => {
+                const productId = window.location.pathname.split('/').pop();
+                // const selectedSize = document.querySelector('.size-btn.border-primary')?.getAttribute('data-size');
+                // const selectedColor = document.querySelector('.w-8.h-8.rounded-full.border-primary')?.style.backgroundColor;
+                const productName = document.querySelector('.text-3xl.font-bold.text-gray-900').textContent;
+                // const price = document.querySelector('#priceSection .text-2xl.font-bold.text-primary').textContent;
+
+                if (!productDataForCart.Name || !productDataForCart.size || !productDataForCart.TagId || !productDataForCart.color || !productDataForCart.price) {
+                    alert('Please select all product options before adding to cart. e.g., color, size');
+                    return;
+                }
+                productDataForCart.productId = productId;
+                productDataForCart.quantity = 1; // here we are setting a default quantity of 1
+                productDataForCart.image = `${mainImage.src}`
+                console.log(productDataForCart)
+                const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+                // ✅ If User is Logged In - Send Data to Backend
+                if (isLoggedIn) {
+                    try {
+                        const response = await fetch('/addToCart', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(productDataForCart)
+                        });
+
+                        if (response.ok) {
+                            const resData = await response.json();
+                            console.log('Added to cart:', resData);
+                            alert('Product added to cart successfully!');
+                            window.location.pathname = '/viewcart';
+                        } else {
+                            const errData = await response.json();
+                            // console.error('Failed to add to cart:', errData.message);
+                            alert(errData.message);
+                            window.location.pathname = '/viewcart';
+                        }
+                    } catch (error) {
+                        console.error('Error adding to cart:', error);
+                        alert('Error adding product to cart.');
+                    }
+                }
+                // ✅ If User is NOT Logged In - Save to LocalStorage
+                else {
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    // Check if Product Already Exists
+                    const existingProduct = cart.find(item => item.TagId === productDataForCart.TagId);
+                    if (existingProduct) {
+                        // existingProduct.quantity += 1;
+                        alert('Product already Exists in cart!');
+                    } else {
+                        cart.push({
+                            productId: productDataForCart.productId,
+                            productName: productDataForCart.Name,
+                            price: productDataForCart.price,
+                            size: productDataForCart.size,
+                            color: productDataForCart.color,
+                            TagId: productDataForCart.TagId,
+                            quantity: productDataForCart.quantity,
+                            image: productDataForCart.image
+                        });
+                        alert('Product added to cart successfully!');
+                    }
+
+                    // ✅ Save Cart to LocalStorage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    window.location.pathname = '/viewcart';
+                }
+
+            });
+        }
+
+        // ✅ Function to Update Size Value in Product Details
+        function changeSizeValueInProductDetails(size) {
+            const detailRows = document.querySelectorAll('#details table tr');
+            detailRows.forEach(row => {
+                const label = row.querySelector('td:first-child').textContent.trim();
+                if (label === 'Size') {
+                    row.querySelector('td:last-child').textContent = size;
+                }
+            });
+
+
+        }
+
+
+
+    </script>
+
+
+</body>
+
+</html>

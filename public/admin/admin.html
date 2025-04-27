@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="/admin/admin.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <nav class="navSection"></nav>
+  <div class="container">
+    <!-- <nav class="sidebar">
+      </nav> -->
+    <nav class="sidebar">
+      <!-- <div class="logo">[Strift]</div> -->
+      <ul>
+        <li class="main-item"><i class="ri-home-2-fill"></i>Home</li>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-line-chart-fill"></i>Analytics</li>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-box-3-line"></i>Products</li>
+        <ul class="sub-menu">
+          <li class="nav-link" data-route="/admin/dashboard/product-lists">List</li>
+          <li class="nav-link" data-route="/admin/dashboard/product-edit">Edit</li>
+          <li class="nav-link" data-route="/admin/dashboard/product-create">Create</li>
+        </ul>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-archive-fill"></i>Category</li>
+        <ul class="sub-menu">
+          <li class="nav-link" data-route="/admin/dashboard/category-lists">List</li>
+          <li class="nav-link" data-route="/admin/dashboard/category-edit">Edit</li>
+          <li class="nav-link" data-route="/admin/dashboard/category-create">Create</li>
+        </ul>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-truck-fill"></i>Orders</li>
+      </ul>
+      <ul>
+        <li class="main-item"><i class="ri-user-fill"></i>User</li>
+      </ul>
+      <ul>
+        <li class="main-item">
+          <i class="ri-arrow-down-circle-fill"></i>Logout
+        </li>
+      </ul>
+    </nav>
+    <!-- Main Content -->
+    <section id="content-section" class="main-sec">
+      <div id="product-list" class="main-content section">
+        <div class="product-management">
+          <h2>Products Management</h2>
+          <button class="create-btn">Create New</button>
+          <table class="product-table">
+            <thead>
+              <tr>
+                <th>TagId</th>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Sub Category</th>
+                <th>Gender</th>
+                <th>Price</th>
+                <th>Count In Stock</th>
+                <th>Sizes</th>
+                <th>Colors</th>
+                <th>Update</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody class="product-list-data">
+            </tbody>
+          </table>
+          <div>
+          </div>
+        </div>
+      </div>
+
+      <div id="create-product" class="main-content section">
+        <!-- product create -->
+        <div class="create-container">
+          <div class="preview">
+            <img src="https://via.placeholder.com/300" alt="Product Image" />
+            <div class="multiProductImage">
+
+            </div>
+            <h3>Men Black Slim Fit T-shirt</h3>
+            <p>Category: Fashion</p>
+            <p class="price">$80 <span class="discount">$100</span></p>
+            <div class="size">
+              <strong>Size:</strong>
+              <div style="display: flex; gap: 5px">
+                <span>S</span>
+                <span>M</span>
+                <span>L</span>
+                <span>XL</span>
+                <span>XXL</span>
+              </div>
+            </div>
+            <div class="colors">
+              <strong>Colors:</strong>
+              <div style="display: flex; gap: 5px">
+                <div style="
+                        width: 20px;
+                        height: 20px;
+                        background: black;
+                        border-radius: 50%;
+                      "></div>
+                <div style="
+                        width: 20px;
+                        height: 20px;
+                        background: blue;
+                        border-radius: 50%;
+                      "></div>
+                <div style="
+                        width: 20px;
+                        height: 20px;
+                        background: red;
+                        border-radius: 50%;
+                      "></div>
+              </div>
+            </div>
+            <div class="buttons">
+              <button>Create Product</button>
+              <button class="cancel">Cancel</button>
+            </div>
+          </div>
+
+          <form class="create-form" enctype="multipart/form-data" method="post" action="">
+            <input type="hidden" id="ProductformMode" name="ProductformMode" value="create" />
+            <h2>Add Product main image</h2>
+            <div class="upload-box" id="upload-box" style="border: 2px dashed #ccc; padding: 20px; text-align: center;">
+              Drop your images here, or <strong>click to browse</strong>
+              <input type="file" id="image-upload" class="image-upload" name="image" accept="image/*"
+                style="display: none" required />
+            </div>
+            <h2>Add Product images</h2>
+            <div class="upload-box" id="upload-boxs">
+              Drop your images here, or <strong>click to browse</strong>
+              <input type="file" id="image-uploads" class="" name="images" accept="image/*" style="display: none"
+                required multiple />
+            </div>
+            <div>
+              <label>Product Name</label>
+              <input type="text" placeholder="Enter product name" name="productName" required />
+            </div>
+
+            <div>
+              <label>TagId</label>
+              <input type="text" placeholder="Enter TagId" name="TagId" required />
+            </div>
+
+            <div>
+              <label>Product Category</label>
+              <select name="category" required>
+                <option value="">Loading categories...</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Product Sub Category</label>
+              <select name="subCategory">
+                <option value="">Loading subcategories...</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Gender</label>
+              <select name="gender" required>
+                <option>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Unisex</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Description</label>
+              <textarea placeholder="Short description about the product" rows="4" name="description"
+                required></textarea>
+            </div>
+
+            <div class="sizes">
+              <label>Size</label>
+              <span>XS</span>
+              <span>S</span>
+              <span>M</span>
+              <span>L</span>
+              <span>XL</span>
+              <span>XXL</span>
+              <span>3XL</span>
+            </div>
+
+
+            <div>
+              <label>Discount</label>
+              <input type="text" placeholder="Enter discount" name="discount" required />
+            </div>
+
+            <br>
+
+            <!-- Color Picker -->
+            <div>
+              <label>Select Color:</label>
+              <input type="color" id="newColorHex" value="#ff0000"> <!-- Default color -->
+              <button id="addColorBtn">Add Color</button>
+            </div>
+
+            <!-- Color Options (Generated Dynamically) -->
+            <div>
+              <label>Colors</label>
+              <div class="color-options"></div>
+            </div>
+            <!-- Container for Price & Stock Fields -->
+            <div id="color-details-container"></div>
+            <br>
+
+            <div>
+              <!-- Add custom product field section here -->
+              <h2>Custom Product Fields</h2>
+              <div id="custom-fields-container" style="margin-bottom: 20px; ">
+                <!-- Custom fields will be appended here -->
+              </div>
+              <button type="button" id="add-custom-field" style="
+              background-color: #007bff;
+              height: 5vh;
+              color: white;
+              padding: 8px 12px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;">
+                + Add Custom Field
+              </button>
+            </div>
+            <br> <br>
+            <div class="buttons">
+              <button type="submit">Create Product</button>
+              <button type="button" class="cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!--  -->
+      <div id="edit-product" class="main-content section">
+        <div class="create-container">
+          <div class="preview">
+            <img src="https://via.placeholder.com/300" alt="Product Image" />
+            <div class="multiProductImage">
+
+            </div>
+            <h3>Men Black Slim Fit T-shirt</h3>
+            <p>Category: Fashion</p>
+            <p class="price">$80 <span class="discount">$100</span></p>
+            <div class="size">
+              <strong>Size:</strong>
+              <div style="display: flex; gap: 5px">
+                <span>S</span>
+                <span>M</span>
+                <span>L</span>
+                <span>XL</span>
+                <span>XXL</span>
+              </div>
+            </div>
+            <div class="colors">
+              <strong>Colors:</strong>
+              <div style="display: flex; gap: 5px">
+                <div style="
+                        width: 20px;
+                        height: 20px;
+                        background: black;
+                        border-radius: 50%;
+                      "></div>
+                <div style="
+                        width: 20px;
+                        height: 20px;
+                        background: blue;
+                        border-radius: 50%;
+                      "></div>
+                <div style="
+                        width: 20px;
+                        height: 20px;
+                        background: red;
+                        border-radius: 50%;
+                      "></div>
+              </div>
+            </div>
+            <div class="buttons">
+              <button>Create Product</button>
+              <button class="cancel">Cancel</button>
+            </div>
+          </div>
+
+          <form class="create-form" enctype="multipart/form-data" method="post" action="/admin/dashboard/createproduct">
+            <input type="hidden" id="ProductformMode" name="ProductformMode" value="create" />
+            <h2>Add Product main image</h2>
+            <div class="upload-box" id="upload-box" style="border: 2px dashed #ccc; padding: 20px; text-align: center;">
+              Drop your images here, or <strong>click to browse</strong>
+              <input type="file" id="image-upload" class="image-upload" name="image" accept="image/*"
+                style="display: none" required />
+            </div>
+            <h2>Add Product images</h2>
+            <div class="upload-box" id="upload-boxs">
+              Drop your images here, or <strong>click to browse</strong>
+              <input type="file" id="image-uploads" class="" name="images" accept="image/*" style="display: none"
+                required multiple />
+            </div>
+            <div>
+              <label>Product Name</label>
+              <input type="text" placeholder="Enter product name" class="productName" name="productName" required />
+            </div>
+
+            <div>
+              <label>TagId</label>
+              <input type="text" placeholder="Enter brand name" name="TagId" required />
+            </div>
+
+            <!-- <div>
+                <label>Weight</label>
+                <input type="text" placeholder="Enter weight in gm & kg" name="weight" />
+              </div> -->
+
+            <div>
+              <label>Product Category</label>
+              <select name="category" required>
+                <option value="">Loading categories...</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Product Sub Category</label>
+              <select name="subCategory" required>
+                <option value="">Loading subcategories...</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Gender</label>
+              <select name="gender" required>
+                <option>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Unisex</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Description</label>
+              <textarea placeholder="Short description about the product" rows="4" name="description"
+                required></textarea>
+            </div>
+
+            <div class="sizes">
+              <label>Size</label>
+              <span>XS</span>
+              <span>S</span>
+              <span>M</span>
+              <span>L</span>
+              <span>XL</span>
+              <span>XXL</span>
+              <span>3XL</span>
+            </div>
+
+            <div class="colors" aria-required="false">
+              <label>Colors</label>
+              <span style="background: black; color: white">Black</span>
+              <span style="background: blue; color: white">Blue</span>
+              <span style="background: red; color: white">Red</span>
+              <span style="background: yellow; color: black">Yellow</span>
+              <span style="background: green; color: white">Green</span>
+              <span style="background: pink; color: black">Pink</span>
+            </div>
+
+            <div>
+              <label>Stock</label>
+              <input type="number" placeholder="Enter stock quantity" name="stock" required />
+            </div>
+
+            <div>
+              <label>Price</label>
+              <input type="number" placeholder="Enter price" name="price" required />
+            </div>
+
+            <div>
+              <label>Discount</label>
+              <input type="number" placeholder="Enter discount" name="discount" required />
+            </div>
+
+            <div>
+              <!-- Add custom product field section here -->
+              <h2>Custom Product Fields</h2>
+              <div id="custom-fields-container" style="margin-bottom: 20px; ">
+                <!-- Custom fields will be appended here -->
+              </div>
+              <button type="button" id="add-custom-field" style="
+              background-color: #007bff;
+              height: 5vh;
+              color: white;
+              padding: 8px 12px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;">
+                + Add Custom Field
+              </button>
+            </div>
+
+            <div class="buttons">
+              <button type="submit">Create Product</button>
+              <button type="button" class="cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- category section starts here -->
+      <div id="category-list" class="section">
+        <span style="display: flex; justify-content: space-between; 
+        align-items: center;
+         /* border: 2px solid; */
+         ">
+          <h2>Main Categories</h2>
+          <button style="height: fit-content; margin-right: 5%;">edit category</button>
+          <button type="button" class="deleteCatBtn"
+            style="height: fit-content; margin-right: 5%; display: none;">delete
+            category</button>
+          <button type="button" class="createCatBtn" style="height: fit-content; margin-right: 5%;">create new
+            category</button>
+        </span>
+        <div class="categories-container">
+          <!-- <div class="category-box" data-category="0">
+            <img src="imgs/tshirt.jpg" alt="Fashion" />
+            <p>T-Shirt</p>
+          </div>
+          <div class="category-box" data-category="1">
+            <img src="imgs/hoodie.jpg" alt="Electronics" />
+            <p>Hoodie</p>
+          </div>
+          <div class="category-box" data-category="2">
+            <img src="imgs/pants.jpeg" alt="Footwear" />
+            <p>pants</p>
+          </div>
+          <div class="category-box" data-category="3">
+            <img src="IMGS/kid.jpg" alt="Eyewear" />
+            <p>Kids</p>
+          </div> -->
+        </div>
+
+        <div class="subcategory-container" id="subcategory-container" style="display: none">
+          <span style="display: flex; justify-content: space-between; align-items: center;">
+            <h3>Subcategories</h3>
+            <button class="createSubCategorybtn">create a sub category</button>
+          </span>
+          <table>
+            <thead>
+              <tr>
+                <th>TAG ID</th>
+                <th>SUB CATEGORY NAME</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="subcategory-list">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="create-category" class="section">
+        <div class="cat-container">
+          <!-- Sidebar (Category Preview) -->
+          <div class="cat-sidebar">
+            <img id="categoryThumbnail" src="https://via.placeholder.com/200x150" alt="Category Thumbnail" />
+            <h3 id="categoryName">Fashion Men, Women & Kids</h3>
+            <p><strong>Created By:</strong> Seller</p>
+            <!-- <p><strong>Stock:</strong> 46233</p> -->
+            <p><strong>ID:</strong> FS16276</p>
+            <button class="btn btn-primary" onclick="saveCategory()">
+              Create Category
+            </button>
+            <button class="btn btn-danger">
+              <!-- onclick="resetForm()" -->
+              Cancel
+            </button>
+          </div>
+
+          <!-- Main Content -->
+          <div class="main-content">
+            <h2>Create Category</h2>
+
+            <!-- Thumbnail Photo Section -->
+            <div class="section">
+              <h3>Add Thumbnail Photo</h3>
+            </div>
+
+            <!-- General Information Form -->
+            <form id="createCategoryForm" method="post" action="" enctype="multipart/form-data">
+              <input type="hidden" id="formMode" name="formMode" value="create" />
+              <div class="thumbnail-cat-container" onclick="document.getElementById('thumbnailInput').click()">
+                <p>
+                  Drop your images here, or
+                  <span style="color: #007bff; cursor: pointer">click to browse</span>
+                </p>
+                <p style="font-size: 12px; color: #777777">
+                  (1600 x 1200 recommended, PNG, JPG, GIF allowed)
+                </p>
+                <input type="file" id="thumbnailInput" style="display: none" name="image" accept="image/*" required />
+              </div>
+              <div class="section">
+                <h3>General Information</h3>
+                <label for="categoryTitle">Category Title</label>
+                <input type="text" id="categoryTitle" placeholder="Enter Title" name="categoryTitle" required />
+
+                <label for="createdBy">Created By</label>
+                <select id="createdBy" name="createdBy" required>
+                  <option value="">Select Creator</option>
+                  <option value="admin">Admin</option>
+                  <option value="seller">Seller</option>
+                </select>
+
+                <!-- <label for="stock">Stock</label> -->
+                <!-- <input type="number" id="stock" placeholder="Quantity" min="0" required /> -->
+
+                <label for="tagID">Tag ID</label>
+                <input type="text" id="tagID" placeholder="Enter Tag ID" name="tagId" required />
+
+                <label for="description">Description</label>
+                <textarea id="description" rows="4" placeholder="Type description" name="description"
+                  required></textarea>
+              </div>
+              <!-- Bottom Buttons -->
+              <div class="form-buttons">
+                <button type="button" class="btn btn-danger">
+                  <!-- onclick="resetForm()" -->
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-primary">
+                  <!-- onclick="saveCategory()" -->
+                  Create
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div id="edit-category" class="section">
+      </div>
+    </section>
+  </div>
+  <div class="subCategoryForm" id="subCatForm">
+    <form action="/admin/dashboard/createsubcategory" method="post">
+      <input type="hidden" id="subformMode" name="subformMode" value="createSub" />
+      <h2>Sub Category Form</h2>
+      <div>
+        <label>Sub Category Name</label>
+        <input style="width:300px;" type="text" placeholder="Enter sub category name" class="subCategoryName"
+          name="subCategoryName" required />
+      </div>
+      <div>
+        <label>TagId</label>
+        <input style="width:300px;" type="text" placeholder="Enter Tag Id" class="tagId" name="tagId" required />
+      </div>
+      <div>
+        <label>Main Category TagId</label>
+        <input style="width:300px;" type="text" placeholder="Enter Main Category TagId" class="mainCategoryTagId"
+          name="mainCategoryTagId" id="mainCategoryTagId" required readonly />
+      </div>
+      <div>
+        <label>Description</label>
+        <textarea style="width:300px;" placeholder="Short description about the category" rows="4"
+          name="description"></textarea>
+      </div>
+      <div class="form-buttons">
+        <button type="button" class="btn btn-danger"> Cancel</button>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+  <footer></footer>
+  <!-- <script src="/admin/product.js"></script> -->
+  <script type="module" src="/admin/dashboard.js"></script>
+</body>
+
+</html>

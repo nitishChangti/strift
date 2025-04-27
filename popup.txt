@@ -1,0 +1,16 @@
+before user login 
+
+New customer? Sign Up
+My Profile
+Orders
+Wishlist
+
+
+after user login
+
+login <---> Account\/
+
+My Profile
+Orders
+Wishlist()
+Logout

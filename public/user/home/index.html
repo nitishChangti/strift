@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navSection">
+    </nav>
+    <section class="searchSection1">
+        <input type="search" name="" id="" placeholder="Search for Products" aria-label="Search for Products">
+        <span class="material-symbols-outlined search_bar" id="icon">
+            search
+        </span>
+    </section>
+
+    <!-- </nav> -->
+    <!-- <div class="beforeloginPopUp">
+        <li><span>New customer?&nbsp; &nbsp; </span><span>Sign Up</span></li>
+        <span>
+            <li>
+                <span class="material-symbols-outlined">
+                    account_circle
+                </span>
+                <span>My Profile</span>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">
+                    orders
+                </span>
+                <span>Orders</span>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">
+                    favorite
+                </span>
+                <span>Wishlist</span>
+            </li>
+        </span>
+    </div> -->
+    <div class="banner">
+        <span>
+            <!-- <h1>WINTER ARRIVAL</h1> -->
+            <p class="dis">
+                Discover amazing deals on the latest trends,<br />
+                only at Strift!
+            </p>
+            <button class="ex" onclick="scrolltosection()">Explore now</button>
+        </span>
+    </div>
+    <div class="cat-logo">
+        <!-- T-Shirt Category -->
+        <a href="#" class="category-link" data-category="tshirt">
+            <span class="category-item">
+                <img src="imgs/tshirt.jpg" alt="T-Shirt Category" width="200" />
+                <h2>T-SHIRT</h2> <!-- Display formatted text -->
+            </span>
+        </a>
+
+        <!-- Hoodie Category -->
+        <a href="#" class="category-link" data-category="hoodie">
+            <span class="category-item">
+                <img src="imgs/hoodie.jpg" alt="Hoodie Category" width="200" />
+                <h2>HOODIE</h2> <!-- Display formatted text -->
+            </span>
+        </a>
+
+        <!-- Repeat for other categories -->
+        <a href="product.html">
+            <span>
+                <img src="imgs/pants.jpeg" width="190px" />
+                <h2>JEAN</h2>
+            </span> </a>
+        <a href="product.html">
+            <span><img src="IMGS/kid.jpg" width="180px" />
+                <h2>KIDS</h2>
+            </span>
+        </a>
+    </div>
+    <section class=" product">
+        <h2 class="product-category">Best Selling</h2>
+        <button class="pre-btn"><img src="IMGS/arrow.png" alt="" /></button>
+        <button class="nxt-btn"><img src="imgs/arrow.png" alt="" /></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/k1.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">t shirt full sleves</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹400</span><span class="actual-price">₹800</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/k2.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">t shirt</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹300
+                    </span><span class="actual-price">₹600</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/k3.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">night dress</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹400</span><span class="actual-price">₹800</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card4.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹20</span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card5.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹20</span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card6.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹20</span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+    </section>
+    <!-- winters sections -->
+    <section class="product">
+        <h2 class="product-category">Winters</h2>
+        <button class="pre-btn"><img src="IMGS/arrow.png" alt="" /></button>
+        <button class="nxt-btn"><img src="imgs/arrow.png" alt="" /></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card1.jpg" class="product-thumb" alt="" />
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹20</span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card2.jpg" class="product-thumb" alt="" />
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹35
+                    </span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card3.jpg" class="product-thumb" alt="" />
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹20</span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card4.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹20</span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card5.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹20</span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="imgs/card6.jpg" class="product-thumb" alt="" />
+
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">
+                        a short line about the cloth..
+                    </p>
+                    <span class="price">₹20</span><span class="actual-price">₹40</span>
+                </div>
+            </div>
+    </section>
+
+    <video class="vi" autoplay muted loop src="videos/vi.mp4">
+    </video>
+
+    <footer></footer>
+    <!-- <script type="module" src="index.js"></script> -->
+    <script type="module" src="/home/index.js"></script>
+</body>
+
+</html>
