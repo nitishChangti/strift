@@ -6,9 +6,10 @@ import serverless from 'serverless-http';
 
 export const handler = serverless(app);
 
-dotenv.config({
-    path: '../.env'
-})
+// dotenv.config({
+//     path: '../.env'
+// })
+dotenv.config();  // This automatically loads the environment variables
 
 connectionDB()
     .then(() => {
